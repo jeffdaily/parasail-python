@@ -11,6 +11,12 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 --------------------
+1.1.12_ - 2018-07-12
+--------------------
+- Fix autotools build by updating automake version.
+- Add functions from latest 2.2 C library.
+
+--------------------
 1.1.11_ - 2018-03-06
 --------------------
 - Fix Cigar lifetime bug. Cigar instance now held by Result to avoid freeing C memory early.
@@ -85,7 +91,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.11...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.12...master
+.. _1.1.12: https://github.com/jeffdaily/parasail-python/compare/v1.1.11...v1.1.12
 .. _1.1.11: https://github.com/jeffdaily/parasail-python/compare/v1.1.10...v1.1.11
 .. _1.1.10: https://github.com/jeffdaily/parasail-python/compare/v1.1.9...v1.1.10
 .. _1.1.9:  https://github.com/jeffdaily/parasail-python/compare/v1.1.8...v1.1.9

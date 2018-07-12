@@ -5,7 +5,7 @@ import sys
 
 import numpy
 
-__version__ = "1.1.11"
+__version__ = "1.1.12"
 __title__ = "parasail"
 __description__ = "pairwise sequence alignment library"
 __uri__ = "https://github.com/jeffdaily/parasail-python"
