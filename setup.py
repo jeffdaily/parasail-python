@@ -155,6 +155,7 @@ def fix_permissions(start):
 
 def run_autoreconf(root):
     print("Running autoreconf -fi from {}".format(root))
+    all_good = True
     for tool in ['perl', 'm4', 'autoconf', 'automake', 'libtool', 'autoreconf']:
         try:
             output = subprocess.check_output([tool, '--version'],
@@ -162,19 +163,24 @@ def run_autoreconf(root):
             print(output.strip().splitlines()[0])
         except subprocess.CalledProcessError as e:
             print('{} --version failed'.format(tool))
+            all_good = False
         except OSError as e:
             print('{} not found'.format(tool))
-    retcode = -1
-    try:
-        retcode = subprocess.Popen([
-            'autoreconf',
-            '-fi',
-            ], cwd=root).wait()
-    except Exception as e:
-        pass
-    else:
-        print("autoreconf -fi exited with return code {}".format(retcode))
-    return 0 == retcode
+            all_good = False
+    if all_good:
+        retcode = -1
+        try:
+            retcode = subprocess.Popen([
+                'autoreconf',
+                '-fi',
+                ], cwd=root).wait()
+        except Exception as e:
+            all_good = False
+        else:
+            print("autoreconf -fi exited with return code {}".format(retcode))
+            if retcode != 0:
+                all_good = False
+    return all_good
 
 def build_autotools():
     print("Building autotools")
@@ -185,7 +191,7 @@ def build_autotools():
     # we know these versions to work
     tools = [('m4', '1.4.17'),
             ('autoconf', '2.69'),
-            ('automake', '1.13.4'),
+            ('automake', '1.15.1'),
             ('libtool', '2.4.6')]
     for tool,version in tools:
         os.chdir(top)
