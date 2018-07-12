@@ -53,7 +53,7 @@ else:
             return x
 
 def _make_nd_array(c_pointer, shape, dtype=numpy.intc, order='C', own_data=True):
-    arr_size = numpy.prod(shape[:]) * numpy.dtype(dtype).itemsize 
+    arr_size = numpy.prod(shape[:]) * numpy.dtype(dtype).itemsize
     if sys.version_info.major >= 3:
         buf_from_mem = ctypes.pythonapi.PyMemoryView_FromMemory
         buf_from_mem.restype = ctypes.py_object
@@ -528,6 +528,9 @@ def can_use_sse2():
 
 def can_use_altivec():
     return bool(_lib.parasail_can_use_altivec())
+
+def can_use_neon():
+    return bool(_lib.parasail_can_use_neon())
 
 # begin non-alignment functions defined here
 
