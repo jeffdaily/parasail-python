@@ -156,7 +156,12 @@ def fix_permissions(start):
 def run_autoreconf(root):
     print("Running autoreconf -fi from {}".format(root))
     all_good = True
-    for tool in ['perl', 'm4', 'autoconf', 'automake', 'libtool', 'autoreconf']:
+    tools = ['perl', 'm4', 'autoconf', 'automake', 'libtool', 'autoreconf']
+    if platform.system() == "Darwin":
+        tools[4] = 'glibtool'
+        os.environ['LIBTOOL'] = 'glibtool'
+        os.environ['LIBTOOLIZE'] = 'glibtoolize'
+    for tool in tools:
         try:
             output = subprocess.check_output([tool, '--version'],
                     stderr=subprocess.STDOUT)
@@ -295,6 +300,8 @@ def build_parasail(libname):
             newpath = os.path.join(os.getcwd(), 'autotools', 'bin')
             print("Prepending {} to PATH".format(newpath))
             os.environ['PATH'] = newpath + os.pathsep + os.environ['PATH']
+            if platform.system() == "Darwin" and 'M4' not in os.environ:
+                os.environ['M4'] = '/usr/bin/m4'
             print("PATH={}".format(os.environ['PATH']))
             build_autotools()
             if not run_autoreconf(root):
