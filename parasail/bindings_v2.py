@@ -72,6 +72,15 @@ c_result_p = ctypes.POINTER(result_t)
 
 c_uint32_p = ctypes.POINTER(ctypes.c_uint32)
 
+class traceback_t(ctypes.Structure):
+    _fields_ = [
+        ("query", ctypes.c_char_p),
+        ("comp",  ctypes.c_char_p),
+        ("ref",   ctypes.c_char_p)
+    ]
+
+c_traceback_p = ctypes.POINTER(traceback_t)
+
 class cigar_t(ctypes.Structure):
     _fields_ = [
         ("seq",       c_uint32_p),
@@ -123,6 +132,22 @@ class sequences_t(ctypes.Structure):
     ]
 
 c_sequences_p = ctypes.POINTER(sequences_t)
+
+class Traceback:
+    def __init__(self, pointer):
+        self.pointer = pointer
+    def __del__(self):
+        if _lib:
+            _lib.parasail_traceback_free(self.pointer)
+    @property
+    def query(self):
+        return s(self.pointer[0].query)
+    @property
+    def comp(self):
+        return s(self.pointer[0].comp)
+    @property
+    def ref(self):
+        return s(self.pointer[0].ref)
 
 class Cigar:
     __BAM_CIGAR_STR = 'MIDNSHP=X8'
@@ -184,6 +209,8 @@ class Result:
         self.matrix = matrix
         self._as_parameter_ = pointer
         self._cigar = None
+        self._traceback = None
+        self._traceback_args = None
     def __del__(self):
         if _lib:
             _lib.parasail_result_free(self.pointer)
@@ -309,6 +336,22 @@ class Result:
                 b(self.ref), self.len_ref,
                 self.matrix))
         return self._cigar
+    def get_traceback(self, mch='|', sim=':', neg='.'):
+        if 0 == _lib.parasail_result_is_trace(self.pointer):
+            raise AttributeError("'Result' object has no traceback")
+        args = ''.join([mch,sim,neg])
+        if self._traceback is None or self._traceback_args != args:
+            self._traceback_args = args
+            self._traceback = Traceback(_lib.parasail_result_get_traceback(
+                self.pointer,
+                b(self.query), self.len_query,
+                b(self.ref), self.len_ref,
+                self.matrix,
+                b(mch)[0], b(sim)[0], b(neg)[0]))
+        return self._traceback
+    @property
+    def traceback(self):
+        return self.get_traceback()
 
 class matrix_t(ctypes.Structure):
     _fields_ = [
@@ -642,6 +685,12 @@ _lib.parasail_nw_banded.restype = c_result_p
 
 def nw_banded(s1, s2, open, extend, k, matrix):
     return Result(_lib.parasail_nw_banded(b(s1), len(s1), b(s2), len(s2), open, extend, k, matrix), len(s1), len(s2))
+
+_lib.parasail_result_get_traceback.argtypes = [c_result_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, c_matrix_p, ctypes.c_char, ctypes.c_char, ctypes.c_char]
+_lib.parasail_result_get_traceback.restype = c_traceback_p
+
+_lib.parasail_traceback_free.argtypes = [c_traceback_p]
+_lib.parasail_traceback_free.restype = None
 
 _lib.parasail_cigar_encode.argtypes = [ctypes.c_uint32, ctypes.c_char]
 _lib.parasail_cigar_encode.restype = ctypes.c_uint32
