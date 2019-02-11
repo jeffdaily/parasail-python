@@ -83,7 +83,7 @@ functions, not the low-level instruction set-specific function calls.
 The Python interface also includes wrappers for the various PAM and
 BLOSUM matrices included in the distribution.
 
-Gap open and extension penalties are specified as positive integers.
+Gap open and extension penalties are specified as positive integers.  When any of the algorithms open a gap, only the gap open penalty alone is applied.
 
 .. code:: python
 
@@ -98,37 +98,60 @@ Standard Function Naming Convention
 
 `back to top <#table-of-contents>`__
 
+There are many functions within the parasail library, but most are variations of the familiar main
+algorithms.  The following table describes the main algorithms and the shorthand name used for the function.
+
+=================================================================================== =============
+Algorithm                                                                           Function Name
+=================================================================================== =============
+Smith-Waterman local alignment                                                      sw
+Needleman-Wunsch global alignment                                                   nw
+Semi-Global, do not penalize gaps at beginning of s1/query                          sg_qb
+Semi-Global, do not penalize gaps at end of s1/query                                sg_qe
+Semi-Global, do not penalize gaps at beginning and end of s1/query                  sg_qx
+Semi-Global, do not penalize gaps at beginning of s2/database                       sg_db
+Semi-Global, do not penalize gaps at end of s2/database                             sg_de
+Semi-Global, do not penalize gaps at beginning and end of s2/database               sg_dx
+Semi-Global, do not penalize gaps at beginning of s1/query and end of s2/database   sg_qb_de
+Semi-Global, do not penalize gaps at beginning of s2/database and end of s1/query   sg_qe_db
+Semi-Global, do not penalize gaps at beginning and end of both sequences            sg
+=================================================================================== =============
+
+A good summary of the various alignment algorithms can be found courtesy of Dr. Dannie Durand's course on
+computational genomics `here <http://www.cs.cmu.edu/~durand/03-711/2015/Lectures/PW_sequence_alignment_2015.pdf>`_.
+The same document was copied locally to the C library repo in case this link ever breaks, found `here <https://github.com/jeffdaily/parasail/blob/master/contrib/PW_sequence_alignment_2015.pdf>`_.
+
 To make it easier to find the function you're looking for, the function names follow a naming convention.  The following will use set notation {} to indicate a selection must be made and brackets [] to indicate an optional part of the name.
 
 - Non-vectorized, reference implementations.
 
-  - Required, select one of global (nw), semi-global (sg), or local (sw) alignment.
+  - Required, select algorithm from table above.
   - Optional return alignment statistics.
   - Optional return DP table or last row/col.
   - Optional use a prefix scan implementation.
-  - ``parasail. {nw,sg,sw} [_stats] [{_table,_rowcol}] [_scan]``
+  - ``parasail. {nw,sg,sg_qb,sg_qe,sg_qx,sg_db,sg_de,sg_dx,sg_qb_de,sg_qe_db,sw} [_stats] [{_table,_rowcol}] [_scan]``
 
 - Non-vectorized, traceback-capable reference implementations.
 
-  - Required, select one of global (nw), semi-global (sg), or local (sw) alignment.
+  - Required, select algorithm from table above.
   - Optional use a prefix scan implementation.
-  - ``parasail. {nw,sg,sw} _trace [_scan]``
+  - ``parasail. {nw,sg,sg_qb,sg_qe,sg_qx,sg_db,sg_de,sg_dx,sg_qb_de,sg_qe_db,sw} _trace [_scan]``
 
 - Vectorized.
 
-  - Required, select one of global (nw), semi-global (sg), or local (sw) alignment.
+  - Required, select algorithm from table above.
   - Optional return alignment statistics.
   - Optional return DP table or last row/col.
   - Required, select vectorization strategy -- striped is a good place to start, but scan is often faster for global alignment.
   - Required, select solution width. 'sat' will attempt 8-bit solution but if overflow is detected it will then perform the 16-bit operation. Can be faster in some cases, though 16-bit is often sufficient.
-  - ``parasail. {nw,sg,sw} [_stats] [{_table,_rowcol}] {_striped,_scan,_diag} {_8,_16,_32,_64,_sat}``
+  - ``parasail. {nw,sg,sg_qb,sg_qe,sg_qx,sg_db,sg_de,sg_dx,sg_qb_de,sg_qe_db,sw} [_stats] [{_table,_rowcol}] {_striped,_scan,_diag} {_8,_16,_32,_64,_sat}``
 
 - Vectorized, traceback-capable.
 
-  - Required, select one of global (nw), semi-global (sg), or local (sw) alignment.
+  - Required, select algorithm from table above.
   - Required, select vectorization strategy -- striped is a good place to start, but scan is often faster for global alignment.
   - Required, select solution width. 'sat' will attempt 8-bit solution but if overflow is detected it will then perform the 16-bit operation. Can be faster in some cases, though 16-bit is often sufficient.
-  - ``parasail. {nw,sg,sw} _trace {_striped,_scan,_diag} {_8,_16,_32,_64,_sat}``
+  - ``parasail. {nw,sg,sg_qb,sg_qe,sg_qx,sg_db,sg_de,sg_dx,sg_qb_de,sg_qe_db,sw} _trace {_striped,_scan,_diag} {_8,_16,_32,_64,_sat}``
 
 Profile Function Naming Convention
 ----------------------------------
@@ -147,19 +170,19 @@ It has been noted in literature that some performance can be gained by reusing t
 
   - Vectorized.
 
-    - Required, select one of global (nw), semi-global (sg), or local (sw) alignment.
+    - Required, select algorithm from table above.
     - Optional return alignment statistics.
     - Optional return DP table or last row/col.
     - Required, select vectorization strategy -- striped is a good place to start, but scan is often faster for global alignment.
     - Required, select solution width. 'sat' will attempt 8-bit solution but if overflow is detected it will then perform the 16-bit operation. Can be faster in some cases, though 16-bit is often sufficient.
-    - ``parasail. {nw,sg,sw} [_stats] [{_table,_rowcol}] {_striped,_scan} _profile {_8,_16,_32,_64,_sat}``
+    - ``parasail. {nw,sg,sg_qb,sg_qe,sg_qx,sg_db,sg_de,sg_dx,sg_qb_de,sg_qe_db,sw} [_stats] [{_table,_rowcol}] {_striped,_scan} _profile {_8,_16,_32,_64,_sat}``
 
   - Vectorized, traceback-capable.
 
-    - Required, select one of global (nw), semi-global (sg), or local (sw) alignment.
+    - Required, select algorithm from table above.
     - Required, select vectorization strategy -- striped is a good place to start, but scan is often faster for global alignment.
     - Required, select solution width. 'sat' will attempt 8-bit solution but if overflow is detected it will then perform the 16-bit operation. Can be faster in some cases, though 16-bit is often sufficient.
-    - ``parasail. {nw,sg,sw} _trace {_striped,_scan} _profile {_8,_16,_32,_64,_sat}``
+    - ``parasail. {nw,sg,sg_qb,sg_qe,sg_qx,sg_db,sg_de,sg_dx,sg_qb_de,sg_qe_db,sw} _trace {_striped,_scan} _profile {_8,_16,_32,_64,_sat}``
 
 Please note that the bit size you select for creating the profile *must* match the bit size of the function you call. The example below uses a 16-bit profile and a 16-bit function.
 
@@ -201,23 +224,27 @@ You can also parse simple matrix files using the function if the file is in the 
     # Needs a row for the alphabet.  First column is a repeat of the
     # alphabet and assumed to be identical in order to the first alphabet row.
     #
-        A   T   G   C   S   W   R   Y   K   M   B   V   H   D   N   U
-    A   5  -4  -4  -4  -4   1   1  -4  -4   1  -4  -1  -1  -1  -2  -4
-    T  -4   5  -4  -4  -4   1  -4   1   1  -4  -1  -4  -1  -1  -2   5
-    G  -4  -4   5  -4   1  -4   1  -4   1  -4  -1  -1  -4  -1  -2  -4
-    C  -4  -4  -4   5   1  -4  -4   1  -4   1  -1  -1  -1  -4  -2  -4
-    S  -4  -4   1   1  -1  -4  -2  -2  -2  -2  -1  -1  -3  -3  -1  -4
-    W   1   1  -4  -4  -4  -1  -2  -2  -2  -2  -3  -3  -1  -1  -1   1
-    R   1  -4   1  -4  -2  -2  -1  -4  -2  -2  -3  -1  -3  -1  -1  -4
-    Y  -4   1  -4   1  -2  -2  -4  -1  -2  -2  -1  -3  -1  -3  -1   1
-    K  -4   1   1  -4  -2  -2  -2  -2  -1  -4  -1  -3  -3  -1  -1   1
-    M   1  -4  -4   1  -2  -2  -2  -2  -4  -1  -3  -1  -1  -3  -1  -4
-    B  -4  -1  -1  -1  -1  -3  -3  -1  -1  -3  -1  -2  -2  -2  -1  -1
-    V  -1  -4  -1  -1  -1  -3  -1  -3  -3  -1  -2  -1  -2  -2  -1  -4
-    H  -1  -1  -4  -1  -3  -1  -3  -1  -3  -1  -2  -2  -1  -2  -1  -1
-    D  -1  -1  -1  -4  -3  -1  -1  -3  -1  -3  -2  -2  -2  -1  -1  -1
-    N  -2  -2  -2  -2  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -2
-    U  -4   5  -4  -4  -4   1  -4   1   1  -4  -1  -4  -1  -1  -2   5
+    # Last row and column *must* be a non-alphabet character to represent
+    # any input sequence character that is outside of the alphabet.
+    #
+        A   T   G   C   S   W   R   Y   K   M   B   V   H   D   N   U   *
+    A   5  -4  -4  -4  -4   1   1  -4  -4   1  -4  -1  -1  -1  -2  -4  -5
+    T  -4   5  -4  -4  -4   1  -4   1   1  -4  -1  -4  -1  -1  -2   5  -5
+    G  -4  -4   5  -4   1  -4   1  -4   1  -4  -1  -1  -4  -1  -2  -4  -5
+    C  -4  -4  -4   5   1  -4  -4   1  -4   1  -1  -1  -1  -4  -2  -4  -5
+    S  -4  -4   1   1  -1  -4  -2  -2  -2  -2  -1  -1  -3  -3  -1  -4  -5
+    W   1   1  -4  -4  -4  -1  -2  -2  -2  -2  -3  -3  -1  -1  -1   1  -5
+    R   1  -4   1  -4  -2  -2  -1  -4  -2  -2  -3  -1  -3  -1  -1  -4  -5
+    Y  -4   1  -4   1  -2  -2  -4  -1  -2  -2  -1  -3  -1  -3  -1   1  -5
+    K  -4   1   1  -4  -2  -2  -2  -2  -1  -4  -1  -3  -3  -1  -1   1  -5
+    M   1  -4  -4   1  -2  -2  -2  -2  -4  -1  -3  -1  -1  -3  -1  -4  -5
+    B  -4  -1  -1  -1  -1  -3  -3  -1  -1  -3  -1  -2  -2  -2  -1  -1  -5
+    V  -1  -4  -1  -1  -1  -3  -1  -3  -3  -1  -2  -1  -2  -2  -1  -4  -5
+    H  -1  -1  -4  -1  -3  -1  -3  -1  -3  -1  -2  -2  -1  -2  -1  -1  -5
+    D  -1  -1  -1  -4  -3  -1  -1  -3  -1  -3  -2  -2  -2  -1  -1  -1  -5
+    N  -2  -2  -2  -2  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -2  -5
+    U  -4   5  -4  -4  -4   1  -4   1   1  -4  -1  -4  -1  -1  -2   5  -5
+    *  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5  -5
 
 .. code:: python
 
