@@ -99,7 +99,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.12...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.13...master
+.. _1.1.12: https://github.com/jeffdaily/parasail-python/compare/v1.1.12...v1.1.13
 .. _1.1.12: https://github.com/jeffdaily/parasail-python/compare/v1.1.11...v1.1.12
 .. _1.1.11: https://github.com/jeffdaily/parasail-python/compare/v1.1.10...v1.1.11
 .. _1.1.10: https://github.com/jeffdaily/parasail-python/compare/v1.1.9...v1.1.10
