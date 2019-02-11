@@ -11,6 +11,14 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 --------------------
+1.1.13_ - 2019-11-02
+--------------------
+- Bindings up to date with 2.4 C library.
+- New semi-global routines.
+- Case-sensitive support.
+- Users may optionally set string encoding using parasail.set_encoding(name). Default remains 'latin_1'.
+
+--------------------
 1.1.12_ - 2018-07-12
 --------------------
 - Fix autotools build by updating automake version.
