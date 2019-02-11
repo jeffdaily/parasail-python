@@ -28,6 +28,16 @@ if os.path.exists(_libpath):
 else:
     _lib = ctypes.CDLL(_libname)
 
+_case_sensitive = False
+def set_case_sensitive(case):
+    global _case_sensitive
+    _case_sensitive = case
+
+_alphabet_aliases = None
+def set_alphabet_aliases(alias):
+    global _alphabet_aliases
+    _alphabet_aliases = alias
+
 _encoding = 'latin_1'
 def set_encoding(encoding):
     global _encoding
@@ -39,7 +49,10 @@ def set_encoding(encoding):
 
 if sys.version_info.major < 3:
     def b(x):
-        return str(x)
+        if x is None:
+            return None
+        else:
+            return str(x)
     def s(x):
         return str(x)
     def isstr(s):
@@ -343,28 +356,37 @@ class Result:
         return _make_nd_array(
             _lib.parasail_result_get_length_col(self.pointer),
             (self.len_query,))
-    @property
-    def cigar(self):
+    def get_cigar(self, case_sensitive=None, alphabet_aliases=None):
         if 0 == _lib.parasail_result_is_trace(self.pointer):
             raise AttributeError("'Result' object has no traceback")
+        case = case_sensitive or _case_sensitive
+        alias = alphabet_aliases or _alphabet_aliases
         if self._cigar is None:
-            self._cigar = Cigar(_lib.parasail_result_get_cigar(self.pointer,
-                b(self.query), self.len_query,
-                b(self.ref), self.len_ref,
-                self.matrix))
-        return self._cigar
-    def get_traceback(self, mch='|', sim=':', neg='.'):
-        if 0 == _lib.parasail_result_is_trace(self.pointer):
-            raise AttributeError("'Result' object has no traceback")
-        args = ''.join([mch,sim,neg])
-        if self._traceback is None or self._traceback_args != args:
-            self._traceback_args = args
-            self._traceback = Traceback(_lib.parasail_result_get_traceback(
+            self._cigar = Cigar(_lib.parasail_result_get_cigar_extra(
                 self.pointer,
                 b(self.query), self.len_query,
                 b(self.ref), self.len_ref,
                 self.matrix,
-                b(mch)[0], b(sim)[0], b(neg)[0]))
+                case, b(alias)))
+        return self._cigar
+    @property
+    def cigar(self):
+        return self.get_cigar()
+    def get_traceback(self, mch='|', sim=':', neg='.', case_sensitive=None, alphabet_aliases=None):
+        if 0 == _lib.parasail_result_is_trace(self.pointer):
+            raise AttributeError("'Result' object has no traceback")
+        case = case_sensitive or _case_sensitive
+        alias = alphabet_aliases or _alphabet_aliases
+        args = ''.join([mch,sim,neg,str(case),str(alias)])
+        if self._traceback is None or self._traceback_args != args:
+            self._traceback_args = args
+            self._traceback = Traceback(_lib.parasail_result_get_traceback_extra(
+                self.pointer,
+                b(self.query), self.len_query,
+                b(self.ref), self.len_ref,
+                self.matrix,
+                b(mch)[0], b(sim)[0], b(neg)[0],
+                case, b(alias)))
         return self._traceback
     @property
     def traceback(self):
@@ -384,16 +406,21 @@ class matrix_t(ctypes.Structure):
 c_matrix_p = ctypes.POINTER(matrix_t)
 
 class Matrix:
-    def __init__(self, pointer_or_string):
+    def __init__(self, pointer_or_string, case_sensitive=None):
         pointer = None
         if isstr(pointer_or_string):
             pointer = _lib.parasail_matrix_lookup(b(pointer_or_string))
             if not pointer:
+                case = case_sensitive or _case_sensitive
                 # matrix_from_file calls exit if file doesn't exist
                 # so check now to avoid python exiting
                 if os.path.isfile(pointer_or_string):
-                    pointer = _lib.parasail_matrix_from_file(
-                            b(pointer_or_string))
+                    if case:
+                        pointer = _lib.parasail_matrix_from_file_case_sensitive(
+                                b(pointer_or_string))
+                    else:
+                        pointer = _lib.parasail_matrix_from_file(
+                                b(pointer_or_string))
                 else:
                     raise ValueError("Cannot open matrix file `%s'"%
                             pointer_or_string)
@@ -414,6 +441,9 @@ class Matrix:
         return _make_nd_array(
             self.pointer[0].matrix,
             (self.pointer[0].size, self.pointer[0].size))
+    @property
+    def mapper(self):
+        return _make_nd_array( self.pointer[0].mapper, (256,))
     @property
     def size(self):
         return self.pointer[0].size
@@ -612,6 +642,10 @@ _lib.parasail_matrix_from_file
 _lib.parasail_matrix_from_file.argtypes = [ctypes.c_char_p]
 _lib.parasail_matrix_from_file.restype = c_matrix_p
 
+_lib.parasail_matrix_from_file_case_sensitive
+_lib.parasail_matrix_from_file_case_sensitive.argtypes = [ctypes.c_char_p]
+_lib.parasail_matrix_from_file_case_sensitive.restype = c_matrix_p
+
 blosum100 = Matrix(_lib.parasail_matrix_lookup(b("blosum100")))
 blosum30 = Matrix(_lib.parasail_matrix_lookup(b("blosum30")))
 blosum35 = Matrix(_lib.parasail_matrix_lookup(b("blosum35")))
@@ -683,8 +717,15 @@ nuc44 = Matrix(_lib.parasail_matrix_lookup(b("nuc44")))
 _lib.parasail_matrix_create.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
 _lib.parasail_matrix_create.restype = c_matrix_p
 
-def matrix_create(alphabet, match, mismatch):
-    return Matrix(_lib.parasail_matrix_create(b(alphabet), match, mismatch))
+_lib.parasail_matrix_create_case_sensitive.argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_int]
+_lib.parasail_matrix_create_case_sensitive.restype = c_matrix_p
+
+def matrix_create(alphabet, match, mismatch, case_sensitive=None):
+    case = case_sensitive or _case_sensitive
+    if case:
+        return Matrix(_lib.parasail_matrix_create_case_sensitive(b(alphabet), match, mismatch))
+    else:
+        return Matrix(_lib.parasail_matrix_create(b(alphabet), match, mismatch))
 
 # parasail_matrix_free is not exposed.
 # Memory is managed by the Matrix class.
@@ -706,6 +747,9 @@ def nw_banded(s1, s2, open, extend, k, matrix):
 _lib.parasail_result_get_traceback.argtypes = [c_result_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, c_matrix_p, ctypes.c_char, ctypes.c_char, ctypes.c_char]
 _lib.parasail_result_get_traceback.restype = c_traceback_p
 
+_lib.parasail_result_get_traceback_extra.argtypes = [c_result_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, c_matrix_p, ctypes.c_char, ctypes.c_char, ctypes.c_char, ctypes.c_int, ctypes.c_char_p]
+_lib.parasail_result_get_traceback_extra.restype = c_traceback_p
+
 _lib.parasail_traceback_free.argtypes = [c_traceback_p]
 _lib.parasail_traceback_free.restype = None
 
@@ -726,6 +770,9 @@ _lib.parasail_cigar_decode.restype = ctypes.c_void_p
 
 _lib.parasail_result_get_cigar.argtypes = [c_result_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, c_matrix_p]
 _lib.parasail_result_get_cigar.restype = c_cigar_p
+
+_lib.parasail_result_get_cigar_extra.argtypes = [c_result_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, c_matrix_p, ctypes.c_int, ctypes.c_char_p]
+_lib.parasail_result_get_cigar_extra.restype = c_cigar_p
 
 _lib.parasail_cigar_free.argtypes = [c_cigar_p]
 _lib.parasail_cigar_free.restype = None
@@ -981,8 +1028,8 @@ def sequences_from_file(filename):
 _argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int, c_matrix_p]
 """)
 
-# serial reference implementations (3x2x3 = 18 impl)
-alg = ["nw", "sg", "sw"]
+# serial reference implementations
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 for a in alg:
@@ -1000,8 +1047,8 @@ for a in alg:
             else:
                 myprint(" "*8+"len(s1), len(s2))")
 
-## serial scan reference implementations (3x2x3 = 18 impl)
-alg = ["nw", "sg", "sw"]
+## serial scan reference implementations
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 for a in alg:
@@ -1019,8 +1066,8 @@ for a in alg:
             else:
                 myprint(" "*8+"len(s1), len(s2))")
 
-# vectorized implementations (3x2x3x3x4 = 216 impl)
-alg = ["nw", "sg", "sw"]
+# vectorized implementations
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 par = ["_scan", "_striped", "_diag"]
@@ -1046,8 +1093,8 @@ myprint("""
 _argtypes = [c_profile_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
 """)
 
-# vectorized profile implementations (3x2x3x2x4 = 144 impl)
-alg = ["nw", "sg", "sw"]
+# vectorized profile implementations
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 par = ["_scan_profile", "_striped_profile"]

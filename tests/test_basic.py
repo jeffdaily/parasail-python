@@ -29,3 +29,10 @@ def test4():
     assert(result.score == 20)
     del result
     del profile
+
+if __name__ == '__main__':
+    print("running tests")
+    test1()
+    test2()
+    test3()
+    test4()
