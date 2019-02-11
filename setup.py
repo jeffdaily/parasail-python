@@ -156,9 +156,9 @@ def fix_permissions(start):
 def run_autoreconf(root):
     print("Running autoreconf -fi from {}".format(root))
     all_good = True
-    tools = ['perl', 'm4', 'autoconf', 'automake', 'libtool', 'autoreconf']
+    tools = ['perl', 'm4', 'autoconf', 'automake', 'libtoolize', 'autoreconf']
     if platform.system() == "Darwin":
-        tools[4] = 'glibtool'
+        tools[4] = 'glibtoolize'
         os.environ['LIBTOOL'] = 'glibtool'
         os.environ['LIBTOOLIZE'] = 'glibtoolize'
     for tool in tools:
