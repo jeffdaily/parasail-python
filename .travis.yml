@@ -1,4 +1,4 @@
-language: c
+language: python
 matrix:
   include:
   - os: linux
@@ -12,7 +12,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update || true; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python3 || brew upgrade python3 || true; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip3 install wheel; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip3 install --user twine; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip3 install twine; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then python3 -c "from wheel.bdist_wheel import bdist_wheel"; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then python3 -m twine --version; fi
 
