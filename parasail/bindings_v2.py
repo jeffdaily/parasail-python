@@ -19,6 +19,15 @@ if os.path.exists(_libpath):
 else:
     _lib = ctypes.CDLL(_libname)
 
+_encoding = 'latin_1'
+def set_encoding(encoding):
+    global _encoding
+    try:
+        (' '.encode(encoding)).decode(encoding)
+    except LookupError:
+        raise Exception("Encoding '{}' not supported".format(encoding))
+    _encoding = encoding
+
 if sys.version_info.major < 3:
     def b(x):
         return str(x)
@@ -27,19 +36,18 @@ if sys.version_info.major < 3:
     def isstr(s):
         return isinstance(s, basestring)
 else:
-    import codecs
     def isstr(s):
         return isinstance(s, str)
     def isbytes(s):
         return isinstance(s, (bytes, bytearray))
     def b(x):
         if isstr(x):
-            return codecs.latin_1_encode(str(x))[0]
+            return x.encode(_encoding)
         else:
             return x
     def s(x):
         if isbytes(x):
-            return codecs.latin_1_decode(x)[0]
+            return x.decode(_encoding)
         else:
             return x
 
