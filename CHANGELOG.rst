@@ -11,6 +11,11 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 --------------------
+1.1.15_ - 2019-12-02
+--------------------
+- Fix travis CI pypi deployment, again.
+
+--------------------
 1.1.14_ - 2019-11-02
 --------------------
 - Fix travis CI pypi deployment.
@@ -104,7 +109,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.14...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.15...master
+.. _1.1.15: https://github.com/jeffdaily/parasail-python/compare/v1.1.14...v1.1.15
 .. _1.1.14: https://github.com/jeffdaily/parasail-python/compare/v1.1.13...v1.1.14
 .. _1.1.13: https://github.com/jeffdaily/parasail-python/compare/v1.1.12...v1.1.13
 .. _1.1.12: https://github.com/jeffdaily/parasail-python/compare/v1.1.11...v1.1.12
