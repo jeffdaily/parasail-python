@@ -119,7 +119,7 @@ Semi-Global, do not penalize gaps at beginning and end of both sequences        
 
 A good summary of the various alignment algorithms can be found courtesy of Dr. Dannie Durand's course on
 computational genomics `here <http://www.cs.cmu.edu/~durand/03-711/2015/Lectures/PW_sequence_alignment_2015.pdf>`_.
-The same document was copied locally to the C library repo in case this link ever breaks, found `here <https://github.com/jeffdaily/parasail/blob/master/contrib/PW_sequence_alignment_2015.pdf>`_.
+The same document was copied locally to the C library repo in case this link ever breaks (`link <https://github.com/jeffdaily/parasail/blob/master/contrib/PW_sequence_alignment_2015.pdf>`_).
 
 To make it easier to find the function you're looking for, the function names follow a naming convention.  The following will use set notation {} to indicate a selection must be made and brackets [] to indicate an optional part of the name.
 
