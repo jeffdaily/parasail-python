@@ -3,7 +3,6 @@ matrix:
   include:
   - os: linux
   - os: osx
-    osx_image: xcode8.3
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then rvm get stable || true; fi
