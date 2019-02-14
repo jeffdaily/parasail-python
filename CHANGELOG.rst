@@ -10,6 +10,8 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
+- AppVeyor use python35 to try and work-around packaging issue.
+
 --------------------
 1.1.15_ - 2019-12-02
 --------------------

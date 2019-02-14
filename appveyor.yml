@@ -14,11 +14,11 @@ environment:
 
     - PYTHON: "C:\\Python27"
       SDIST: "yes"
-    - PYTHON: "C:\\Python33"
+    - PYTHON: "C:\\Python35"
       SDIST: "no"
     - PYTHON: "C:\\Python27-x64"
       SDIST: "no"
-    - PYTHON: "C:\\Python33-x64"
+    - PYTHON: "C:\\Python35-x64"
       SDIST: "no"
 
 install:
