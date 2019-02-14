@@ -10,7 +10,10 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
-- AppVeyor use python35 to try and work-around packaging issue.
+--------------------
+1.1.16_ - 2019-14-02
+--------------------
+- AppVeyor now uses python35 to fix packaging issue. Fixes #33.
 
 --------------------
 1.1.15_ - 2019-12-02
@@ -111,7 +114,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.15...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.16...master
+.. _1.1.16: https://github.com/jeffdaily/parasail-python/compare/v1.1.15...v1.1.16
 .. _1.1.15: https://github.com/jeffdaily/parasail-python/compare/v1.1.14...v1.1.15
 .. _1.1.14: https://github.com/jeffdaily/parasail-python/compare/v1.1.13...v1.1.14
 .. _1.1.13: https://github.com/jeffdaily/parasail-python/compare/v1.1.12...v1.1.13
