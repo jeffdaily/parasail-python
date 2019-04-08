@@ -47,7 +47,7 @@ CLASSIFIERS = [
     "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-INSTALL_REQUIRES = ["numpy"]
+INSTALL_REQUIRES = ["numpy", "wheel"]
 
 ###############################################################################
 
