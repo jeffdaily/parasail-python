@@ -11,6 +11,12 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 --------------------
+1.1.17_ - 2019-29-04
+--------------------
+- Add wheel package as dependency.
+- Bump version to create new pypi release with latest 2.4.1 C library.
+
+--------------------
 1.1.16_ - 2019-14-02
 --------------------
 - AppVeyor now uses python35 to fix packaging issue. Fixes #33.
@@ -114,7 +120,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.16...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.17...master
+.. _1.1.17: https://github.com/jeffdaily/parasail-python/compare/v1.1.16...v1.1.17
 .. _1.1.16: https://github.com/jeffdaily/parasail-python/compare/v1.1.15...v1.1.16
 .. _1.1.15: https://github.com/jeffdaily/parasail-python/compare/v1.1.14...v1.1.15
 .. _1.1.14: https://github.com/jeffdaily/parasail-python/compare/v1.1.13...v1.1.14
