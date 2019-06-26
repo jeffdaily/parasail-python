@@ -6,6 +6,7 @@ import shutil
 import stat
 import subprocess
 import time
+from ctypes.util import find_library
 try:
     from urllib import urlretrieve
 except ImportError:
@@ -406,6 +407,10 @@ def download_windows_dll():
     shutil.copy(src,dst)
 
 def prepare_shared_lib():
+    library = find_library('parasail')
+    if library is not None:
+        print("Found parasail library: {}".format(library))
+        return
     libname = get_libname()
     libpath = os.path.join("parasail", libname)
     if not os.path.exists(libpath):
