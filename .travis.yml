@@ -1,30 +1,63 @@
 language: c
 matrix:
   include:
-  - os: linux
   - os: osx
+    env: PLAT=osx
+         PIP=pip3
+  - sudo: required
+    services:
+      - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+         PLAT=manylinux1_x86_64
+         PIP=pip
+    python:
+      - "3.6"
+  - sudo: required
+    services:
+      - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux1_i686
+         PRE_CMD=linux32
+         PLAT=manylinux1_i686
+         PIP=pip
+    python:
+      - "3.6"
+  - sudo: required
+    services:
+      - docker
+    env: DOCKER_IMAGE=quay.io/pypa/manylinux2010_x86_64
+         PLAT=manylinux2010_x86_64
+         PIP=pip
+    python:
+      - "3.6"
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then rvm get stable || true; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update || true; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python3 || brew upgrade python3 || true; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip3 install wheel; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip3 install twine; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then python3 -c "from wheel.bdist_wheel import bdist_wheel"; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then python3 -m twine --version; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then twine --version; fi
+  - if [[ "$PLAT" == "osx" ]]; then rvm get stable || true; fi
+  - if [[ "$PLAT" == "osx" ]]; then brew update || true; fi
+  - if [[ "$PLAT" == "osx" ]]; then brew install python3 || brew upgrade python3 || true; fi
+  - if [[ "$PLAT" == "osx" ]]; then export PATH=/Users/travis/Library/Python/3.7/bin:$PATH; fi
+  - $PIP install --user wheel twine
+  - which twine
+  - twine --version
+
+install:
+  - if [[ "$PLAT" != "osx" ]]; then docker pull $DOCKER_IMAGE; fi
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then python3 setup.py bdist_wheel; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then python setup.py bdist_wheel; fi
+  - if [[ "$PLAT" == "osx" ]]; then python3 setup.py bdist_wheel; fi
+  - if [[ "$PLAT" == "osx" ]]; then ls dist/; fi
+  - if [[ "$PLAT" != "osx" ]]; then docker run --rm -e PLAT=$PLAT -v `pwd`:/io $DOCKER_IMAGE $PRE_CMD /io/build-wheels.sh; fi
+  - if [[ "$PLAT" != "osx" ]]; then ls wheelhouse/; fi
+
+env:
+  global:
+    - TWINE_USERNAME=jeff.daily
+    # Note: TWINE_PASSWORD is set in Travis settings
 
 deploy:
-  provider: pypi
-  user: jeff.daily
-  password:
-    secure: "rqXQR7B6HqMV8VqcTWfDouv8WoYJb22VYuFS6zt3R4e5/TYRv44HxOv3rBcSuwwYUYYJtBj1j8NVr9MsDsjYNjizsmYh7fZK4e7fq3C2vZFRozDk2AdlpQiQGuRli9Qc37N/oBM8VI+AImQtwGYkmg+GxLH9W3FOC4Vwl4PS5WtnjB2G6bmWp6LTuB3kfuBVTLLy2LFKMTDbexuKXo7nxgzU/y1iJVpd+HTHT/DgveftPv4OtxVg1PWe1iKOwzfdWto+ry2c5R38IP//JezL5YvK8xhSh7wzoKgiNKVstCj59rbZhfC43P+S2KhFU7GByoo5XBi6TSrR5r2PrtEGB9iGTfi2sJ/NBZ1yToBqqdxPLjlL81rHo1zbE43+BlVD3EDS+DB4/Zw1yRqJfFxcwognbJjicMQBgwfsAJekUtRaC09PaV1cWxUHzk/hEBdJzCUqjsYHH/bSFpsUA1Whh4UBD6Gzz3Ttdm8/m6E0TeILULzqYQhFTuNVkus3CEzQbmGls8fOkHe1TusrEShJilyftoRgH1qRE5hGTeXZEZF/ST7RucxzU625p0bPWxHL4b4iGyw7CIWHgEzGYjzkLL2wKapL5srolv7yDaeH4NEtMQkRSVXl573X9vF7xSW5PLBFX/wEYF95r5VT8fapEVeyOxo/TrdWfpsBAbGRQX4="
-  distributions: "bdist_wheel"
+  provider: script
+  script:
+    - if [[ "$PLAT" == "osx" ]]; then twine upload dist/parasail*.whl
+    - if [[ "$PLAT" != "osx" ]]; then twine upload wheelhouse/parasail*.whl
   skip_cleanup: true
   on:
     tags: true
-    condition: $TRAVIS_OS_NAME = "osx"
