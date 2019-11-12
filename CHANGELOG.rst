@@ -11,6 +11,11 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 --------------------
+1.1.19_ - 2019-12-11
+--------------------
+- Missed version bump during last release.
+
+--------------------
 1.1.18_ - 2019-12-11
 --------------------
 - Allow install without downloading and building C library, set evn var PARASAIL_SKIP_BUILD=1 to enable.
@@ -125,7 +130,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.18...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.19...master
+.. _1.1.19: https://github.com/jeffdaily/parasail-python/compare/v1.1.18...v1.1.19
 .. _1.1.18: https://github.com/jeffdaily/parasail-python/compare/v1.1.17...v1.1.18
 .. _1.1.17: https://github.com/jeffdaily/parasail-python/compare/v1.1.16...v1.1.17
 .. _1.1.16: https://github.com/jeffdaily/parasail-python/compare/v1.1.15...v1.1.16
