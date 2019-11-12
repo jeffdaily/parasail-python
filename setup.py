@@ -409,6 +409,9 @@ def prepare_shared_lib():
     libname = get_libname()
     libpath = os.path.join("parasail", libname)
     if not os.path.exists(libpath):
+        if "PARASAIL_SKIP_BUILD" in os.environ:
+            print("{} not found, but PARASAIL_SKIP_BUILD set by env var, skipping download and build".format(libpath))
+            return
         print("{} not found, attempting to build".format(libpath))
         if platform.system() == "Windows":
             download_windows_dll()

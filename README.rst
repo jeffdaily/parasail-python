@@ -73,6 +73,8 @@ The second approach is to let the setup.py script attempt to download and compil
 
 The bdist_wheel target will first look for the shared library.  If it exists, it will happily install it as package data.  Otherwise, the latest parasail master branch from github will be downloaded, unzipped, configured, made, and the shared library will be copied into the appropriate location for package data installation.
 
+The downloading and building of the parasail C library can be skipped if you set the environment variable PARASAIL_SKIP_BUILD to any value prior to running setup.py or pip install. At runtime during import, the parasail bindings will search for the parasail C library first in the package data location, then in standard system locations, and lastly by searching through the environment variables PARASAIL_LIBPATH, LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, and PATH.. For verbose output during this search, set PARASAIL_VERBOSE=1.
+
 Quick Example
 -------------
 
