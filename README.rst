@@ -1,15 +1,17 @@
-parasail-python: Python Bindings for the Parasail C Library
-===========================================================
+parasail-python
+===============
+
+Python Bindings for the Parasail C Library
 
 Travis Build Status:
 
 .. image:: https://travis-ci.org/jeffdaily/parasail-python.svg?branch=master
     :alt: Build Status
 
-AppVeyor Build Status:
+PyPI Package:
 
-.. image:: https://ci.appveyor.com/api/projects/status/jg40pv1eg8tch5iu?svg=true
-    :alt: Build Status
+.. image:: https://badge.fury.io/py/parasail.svg
+    :target: https://badge.fury.io/py/parasail
 
 Author: Jeff Daily (jeff.daily@pnnl.gov)
 
