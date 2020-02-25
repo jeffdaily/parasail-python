@@ -19,11 +19,12 @@ env:
     - CIBW_BUILD: cp37-*
 
 install:
-  - python -m pip install twine cibuildwheel==1.1.0
+  - python -m pip install twine cibuildwheel==1.1.0 wheel
   - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
   - cibuildwheel --output-dir wheelhouse
+  - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
 
 after_success:
   - if [[ $TRAVIS_TAG ]]; then python -m twine upload wheelhouse/*.whl; fi
