@@ -11,38 +11,44 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 --------------------
-1.1.19_ - 2019-12-11
+1.1.20_ - 2020-02-25
+--------------------
+- Build wheels with cibuildwheel.
+- Fix #11 manylinux1 builds for pypi.
+
+--------------------
+1.1.19_ - 2019-11-12
 --------------------
 - Missed version bump during last release.
 
 --------------------
-1.1.18_ - 2019-12-11
+1.1.18_ - 2019-11-12
 --------------------
 - Allow install without downloading and building C library, set evn var PARASAIL_SKIP_BUILD=1 to enable.
 
 --------------------
-1.1.17_ - 2019-29-04
+1.1.17_ - 2019-04-29
 --------------------
 - Add wheel package as dependency.
 - Bump version to create new pypi release with latest 2.4.1 C library.
 
 --------------------
-1.1.16_ - 2019-14-02
+1.1.16_ - 2019-02-14
 --------------------
 - AppVeyor now uses python35 to fix packaging issue. Fixes #33.
 
 --------------------
-1.1.15_ - 2019-12-02
+1.1.15_ - 2019-02-12
 --------------------
 - Fix travis CI pypi deployment, again.
 
 --------------------
-1.1.14_ - 2019-11-02
+1.1.14_ - 2019-02-11
 --------------------
 - Fix travis CI pypi deployment.
 
 --------------------
-1.1.13_ - 2019-11-02
+1.1.13_ - 2019-02-11
 --------------------
 - Bindings up to date with 2.4 C library.
 - New semi-global routines.
@@ -130,7 +136,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.19...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.20...master
+.. _1.1.20: https://github.com/jeffdaily/parasail-python/compare/v1.1.19...v1.1.20
 .. _1.1.19: https://github.com/jeffdaily/parasail-python/compare/v1.1.18...v1.1.19
 .. _1.1.18: https://github.com/jeffdaily/parasail-python/compare/v1.1.17...v1.1.18
 .. _1.1.17: https://github.com/jeffdaily/parasail-python/compare/v1.1.16...v1.1.17
