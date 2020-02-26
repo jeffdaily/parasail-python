@@ -29,4 +29,4 @@ script:
   - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
 
 after_success:
-  - if [[ $TRAVIS_TAG ]]; then python -m twine upload wheelhouse/; fi
+  - if [[ $TRAVIS_TAG ]]; then python -m twine upload wheelhouse/*; fi
