@@ -16,7 +16,9 @@ jobs:
 
 env:
   global:
-    - CIBW_BUILD: cp37-*
+    - CIBW_BUILD="cp37-*"
+    - CIBW_TEST_COMMAND="python -m unittest discover {project}/tests"
+    - TWINE_USERNAME=__token__
 
 install:
   - python -m pip install twine cibuildwheel==1.1.0 wheel
@@ -27,4 +29,4 @@ script:
   - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
 
 after_success:
-  - if [[ $TRAVIS_TAG ]]; then python -m twine upload wheelhouse/*.whl; fi
+  - if [[ $TRAVIS_TAG ]]; then python -m twine upload wheelhouse/*; fi
