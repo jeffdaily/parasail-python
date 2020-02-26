@@ -10,6 +10,12 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
+-------------------
+1.2c1_ - 2020-02-26
+-------------------
+- Automated testsuite.
+- Fix wheel deployment.
+
 --------------------
 1.1.20_ - 2020-02-25
 --------------------
@@ -137,6 +143,7 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
 .. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.1.20...master
+.. _1.2c1:  https://github.com/jeffdaily/parasail-python/compare/v1.1.20...v1.2c1
 .. _1.1.20: https://github.com/jeffdaily/parasail-python/compare/v1.1.19...v1.1.20
 .. _1.1.19: https://github.com/jeffdaily/parasail-python/compare/v1.1.18...v1.1.19
 .. _1.1.18: https://github.com/jeffdaily/parasail-python/compare/v1.1.17...v1.1.18
