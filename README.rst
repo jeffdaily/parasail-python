@@ -21,6 +21,7 @@ Table of Contents
 -  `Installation <#installation>`__
 
    -  `Using pip <#using-pip>`__
+   -  `Testing <#tesing>`__
    -  `Building from Source <#building-from-source>`__
 
 -  `Quick Example <#quick-example>`__
@@ -57,6 +58,17 @@ The recommended way of installing is to use the latest version available via pip
     pip install parasail
     
 Binaries for Windows and OSX should be available via pip.  Using pip on a Linux platform will first download the latest version of the parasail C library sources and then compile them automatically into a shared library.  For an installation from sources, or to learn how the pip installation works on Linux, please read on.
+
+Testing
++++++++
+
+`back to top <#table-of-contents>`__
+
+To run the testsuite use the unittest runner.
+
+::
+
+    python -m unittest discover tests
 
 Building from Source
 ++++++++++++++++++++
