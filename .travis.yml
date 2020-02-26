@@ -16,8 +16,8 @@ jobs:
 
 env:
   global:
-    - CIBW_BUILD: cp37-*
-    - CIBW_TEST_COMMAND: "python -m unittest discover {project}/tests"
+    - CIBW_BUILD="cp37-*"
+    - CIBW_TEST_COMMAND="python -m unittest discover {project}/tests"
 
 install:
   - python -m pip install twine cibuildwheel==1.1.0 wheel
