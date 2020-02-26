@@ -11,7 +11,7 @@ __title__ = "parasail"
 __description__ = "pairwise sequence alignment library"
 __uri__ = "https://github.com/jeffdaily/parasail-python"
 __author__ = "Jeff Daily"
-__email__ = "jeff.daily@pnnl.gov"
+__email__ = "jeffrey.daily@gmail.com"
 __license__ = "BSD"
 __copyright__ = "Copyright (c) 2016 Jeff Daily"
 

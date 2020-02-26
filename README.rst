@@ -13,7 +13,7 @@ PyPI Package:
 .. image:: https://badge.fury.io/py/parasail.svg
     :target: https://badge.fury.io/py/parasail
 
-Author: Jeff Daily (jeff.daily@pnnl.gov)
+Author: Jeff Daily (jeffrey.daily@gmail.com)
 
 Table of Contents
 -----------------
