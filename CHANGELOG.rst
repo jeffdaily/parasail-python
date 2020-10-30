@@ -10,6 +10,11 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
+---------------------
+1.2.1c1_ - 2020-02-26
+---------------------
+- Fix #54 bug in ssw_init()
+
 -----------------
 1.2_ - 2020-02-26
 -----------------
@@ -144,26 +149,27 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
 .. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.2...master
-.. _1.2:    https://github.com/jeffdaily/parasail-python/compare/v1.1.20...v1.2
-.. _1.1.20: https://github.com/jeffdaily/parasail-python/compare/v1.1.19...v1.1.20
-.. _1.1.19: https://github.com/jeffdaily/parasail-python/compare/v1.1.18...v1.1.19
-.. _1.1.18: https://github.com/jeffdaily/parasail-python/compare/v1.1.17...v1.1.18
-.. _1.1.17: https://github.com/jeffdaily/parasail-python/compare/v1.1.16...v1.1.17
-.. _1.1.16: https://github.com/jeffdaily/parasail-python/compare/v1.1.15...v1.1.16
-.. _1.1.15: https://github.com/jeffdaily/parasail-python/compare/v1.1.14...v1.1.15
-.. _1.1.14: https://github.com/jeffdaily/parasail-python/compare/v1.1.13...v1.1.14
-.. _1.1.13: https://github.com/jeffdaily/parasail-python/compare/v1.1.12...v1.1.13
-.. _1.1.12: https://github.com/jeffdaily/parasail-python/compare/v1.1.11...v1.1.12
-.. _1.1.11: https://github.com/jeffdaily/parasail-python/compare/v1.1.10...v1.1.11
-.. _1.1.10: https://github.com/jeffdaily/parasail-python/compare/v1.1.9...v1.1.10
-.. _1.1.9:  https://github.com/jeffdaily/parasail-python/compare/v1.1.8...v1.1.9
-.. _1.1.8:  https://github.com/jeffdaily/parasail-python/compare/v1.1.7...v1.1.8
-.. _1.1.7:  https://github.com/jeffdaily/parasail-python/compare/v1.1.6...v1.1.7
-.. _1.1.6:  https://github.com/jeffdaily/parasail-python/compare/v1.1.5...v1.1.6
-.. _1.1.5:  https://github.com/jeffdaily/parasail-python/compare/v1.1.4...v1.1.5
-.. _1.1.4:  https://github.com/jeffdaily/parasail-python/compare/v1.1.3...v1.1.4
-.. _1.1.3:  https://github.com/jeffdaily/parasail-python/compare/v1.1.2...v1.1.3
-.. _1.1.2:  https://github.com/jeffdaily/parasail-python/compare/v1.1.1...v1.1.2
-.. _1.1.1:  https://github.com/jeffdaily/parasail-python/compare/v1.1.0...v1.1.1
-.. _1.1.0:  https://github.com/jeffdaily/parasail-python/releases/tag/v1.1.0
+.. _1.2.1c1: https://github.com/jeffdaily/parasail-python/compare/v1.2...v1.2.1c1
+.. _1.2:     https://github.com/jeffdaily/parasail-python/compare/v1.1.20...v1.2
+.. _1.1.20:  https://github.com/jeffdaily/parasail-python/compare/v1.1.19...v1.1.20
+.. _1.1.19:  https://github.com/jeffdaily/parasail-python/compare/v1.1.18...v1.1.19
+.. _1.1.18:  https://github.com/jeffdaily/parasail-python/compare/v1.1.17...v1.1.18
+.. _1.1.17:  https://github.com/jeffdaily/parasail-python/compare/v1.1.16...v1.1.17
+.. _1.1.16:  https://github.com/jeffdaily/parasail-python/compare/v1.1.15...v1.1.16
+.. _1.1.15:  https://github.com/jeffdaily/parasail-python/compare/v1.1.14...v1.1.15
+.. _1.1.14:  https://github.com/jeffdaily/parasail-python/compare/v1.1.13...v1.1.14
+.. _1.1.13:  https://github.com/jeffdaily/parasail-python/compare/v1.1.12...v1.1.13
+.. _1.1.12:  https://github.com/jeffdaily/parasail-python/compare/v1.1.11...v1.1.12
+.. _1.1.11:  https://github.com/jeffdaily/parasail-python/compare/v1.1.10...v1.1.11
+.. _1.1.10:  https://github.com/jeffdaily/parasail-python/compare/v1.1.9...v1.1.10
+.. _1.1.9:   https://github.com/jeffdaily/parasail-python/compare/v1.1.8...v1.1.9
+.. _1.1.8:   https://github.com/jeffdaily/parasail-python/compare/v1.1.7...v1.1.8
+.. _1.1.7:   https://github.com/jeffdaily/parasail-python/compare/v1.1.6...v1.1.7
+.. _1.1.6:   https://github.com/jeffdaily/parasail-python/compare/v1.1.5...v1.1.6
+.. _1.1.5:   https://github.com/jeffdaily/parasail-python/compare/v1.1.4...v1.1.5
+.. _1.1.4:   https://github.com/jeffdaily/parasail-python/compare/v1.1.3...v1.1.4
+.. _1.1.3:   https://github.com/jeffdaily/parasail-python/compare/v1.1.2...v1.1.3
+.. _1.1.2:   https://github.com/jeffdaily/parasail-python/compare/v1.1.1...v1.1.2
+.. _1.1.1:   https://github.com/jeffdaily/parasail-python/compare/v1.1.0...v1.1.1
+.. _1.1.0:   https://github.com/jeffdaily/parasail-python/releases/tag/v1.1.0
 
