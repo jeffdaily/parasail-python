@@ -982,7 +982,8 @@ def ssw_profile(profile, s2, open, extend):
         return None
 
 def ssw_init(s1, matrix, score_size):
-    return Profile(_lib.parasail_ssw_init(b(s1), len(s1), matrix, score_size), matrix)
+    s1b = b(s1)
+    return Profile(_lib.parasail_ssw_init(s1b, len(s1), matrix, score_size), matrix, s1b)
 
 _lib.parasail_sequences_from_file.argtype = [ctypes.c_char_p]
 _lib.parasail_sequences_from_file.restype = c_sequences_p
