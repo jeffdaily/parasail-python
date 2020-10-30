@@ -4,7 +4,6 @@ from unittest import TestCase, main, expectedFailure
 
 class Tests(TestCase):
 
-    @expectedFailure
     def test1(self):
         p = parasail.ssw_init("asdf", parasail.blosum62, 1)
         r = parasail.ssw_profile(p, "asdf", 10, 1)
