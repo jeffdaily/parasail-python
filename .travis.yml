@@ -21,11 +21,11 @@ env:
     - TWINE_USERNAME=__token__
 
 install:
-  - python -m pip install twine cibuildwheel==1.1.0 wheel
+  - python -m pip install twine cibuildwheel==1.6.4 wheel
   - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
-  - cibuildwheel --output-dir wheelhouse
+  - python -m cibuildwheel --output-dir wheelhouse
   - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
 
 after_success:
