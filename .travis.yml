@@ -17,16 +17,16 @@ jobs:
 env:
   global:
     - CIBW_BUILD="cp37-*"
-    - CIBW_TEST_COMMAND="python -m unittest discover {project}/tests"
+    - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
     - TWINE_USERNAME=__token__
 
 install:
-  - python -m pip install twine cibuildwheel==1.6.4 wheel
+  - python3 -m pip install twine cibuildwheel==1.6.4 wheel
   - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
-  - python -m cibuildwheel --output-dir wheelhouse
-  - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
+  - python3 -m cibuildwheel --output-dir wheelhouse
+  - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python3 setup.py sdist -d wheelhouse; fi
 
 after_success:
-  - if [[ $TRAVIS_TAG ]]; then python -m twine upload wheelhouse/*; fi
+  - if [[ $TRAVIS_TAG ]]; then python3 -m twine upload wheelhouse/*; fi
