@@ -10,9 +10,9 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
----------------------
-1.2.1c1_ - 2020-02-26
----------------------
+-------------------
+1.2.1_ - 2020-11-03
+-------------------
 - Fix #54 bug in ssw_init()
 
 -----------------
@@ -148,8 +148,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.2...master
-.. _1.2.1c1: https://github.com/jeffdaily/parasail-python/compare/v1.2...v1.2.1c1
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.2.1...master
+.. _1.2.1:   https://github.com/jeffdaily/parasail-python/compare/v1.2...v1.2.1
 .. _1.2:     https://github.com/jeffdaily/parasail-python/compare/v1.1.20...v1.2
 .. _1.1.20:  https://github.com/jeffdaily/parasail-python/compare/v1.1.19...v1.1.20
 .. _1.1.19:  https://github.com/jeffdaily/parasail-python/compare/v1.1.18...v1.1.19
