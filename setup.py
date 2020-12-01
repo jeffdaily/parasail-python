@@ -15,7 +15,6 @@ import zipfile
 
 from distutils.util import get_platform
 from setuptools import setup
-from wheel.bdist_wheel import bdist_wheel as bdist_wheel_
 from setuptools.command.install import install as install_
 
 ###############################################################################
@@ -47,7 +46,7 @@ CLASSIFIERS = [
     "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-INSTALL_REQUIRES = ["numpy", "wheel"]
+INSTALL_REQUIRES = ["numpy"]
 
 ###############################################################################
 
@@ -420,17 +419,6 @@ def prepare_shared_lib():
     if not os.path.exists(libpath):
         raise RuntimeError("Unable to find shared library {}.".format(libname))
 
-class bdist_wheel(bdist_wheel_):
-    def run(self):
-        prepare_shared_lib()
-        bdist_wheel_.run(self)
-
-    def finalize_options(self):
-        bdist_wheel_.finalize_options(self)
-        self.universal = True
-        self.plat_name_supplied = True
-        self.plat_name = get_platform()
-
 class install(install_):
     def run(self):
         prepare_shared_lib()
@@ -438,6 +426,23 @@ class install(install_):
 
 
 if __name__ == "__main__":
+    cmdclass = {}
+    try:
+        from wheel.bdist_wheel import bdist_wheel as bdist_wheel_
+        class bdist_wheel(bdist_wheel_):
+            def run(self):
+                prepare_shared_lib()
+                bdist_wheel_.run(self)
+
+            def finalize_options(self):
+                bdist_wheel_.finalize_options(self)
+                self.universal = True
+                self.plat_name_supplied = True
+                self.plat_name = get_platform()
+        cmdclass = {'bdist_wheel': bdist_wheel, 'install': install}
+    except ImportError:
+        cmdclass = {'install': install}
+
     long_description = ""
     try:
         long_description = open("README.rst", encoding="utf8").read()
@@ -457,7 +462,7 @@ if __name__ == "__main__":
         keywords=KEYWORDS,
         packages=PACKAGES,
         package_data={"parasail": [get_libname()]},
-        cmdclass={'bdist_wheel': bdist_wheel, 'install': install},
+        cmdclass=cmdclass,
         zip_safe=False,
         classifiers=CLASSIFIERS,
         install_requires=INSTALL_REQUIRES,
