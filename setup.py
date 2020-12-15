@@ -186,8 +186,11 @@ def run_autoreconf(root):
                 all_good = False
     return all_good
 
-def build_autotools():
-    print("Building autotools")
+def build_autotools(patch_m4=False):
+    if patch_m4:
+        print("Building autotools with patched m4")
+    else:
+        print("Building autotools")
     save_cwd = os.getcwd()
     top = os.path.join(os.getcwd(), 'autotools')
     if not os.path.exists(top):
@@ -218,7 +221,9 @@ def build_autotools():
                     break
             else:
                 # we failed all the attempts - deal with the consequences.
-                raise RuntimeError("All attempts to download {} have failed".format(tarball))
+                print("All attempts to download {} have failed".format(tarball))
+                os.chdir(save_cwd)
+                return False
         if os.path.exists(tdir):
             print("{} already exists! Using existing sources.".format(tdir))
         else:
@@ -228,14 +233,31 @@ def build_autotools():
             print("{} already exists! Skipping build.".format(binary))
         else:
             os.chdir(os.path.join(top,tdir))
+            CPPFLAGS=""
+            if tool == 'm4' and patch_m4:
+                CPPFLAGS="CPPFLAGS=-D_IO_IN_BACKUP=0x100"
+                for filename in ['lib/freading.c', 'lib/fseeko.c', 'lib/fpurge.c', 'lib/freadahead.c', 'lib/fflush.c']:
+                    with open(filename, "r") as source:
+                        lines = source.readlines()
+                    newlines = [line.replace('_IO_ftrylockfile','_IO_EOF_SEEN') for line in lines]
+                    if lines == newlines:
+                        print("{} skipped".format(filename))
+                    else:
+                        with open(filename, "w") as source:
+                            for line in newlines:
+                                source.write(line)
+                        print("{} patched".format(filename))
             print("configuring {}".format(tool))
+            print("running ./configure --prefix={} {}".format(top,CPPFLAGS))
             proc = subprocess.Popen([
-                './configure', '--prefix={}'.format(top)
+                './configure', '--prefix={}'.format(top), '{}'.format(CPPFLAGS)
                 ], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             stdout,stderr = proc.communicate()
             if 0 != proc.returncode:
                 print(stdout)
-                raise RuntimeError("configure of {} failed".format(tool))
+                print("configure of {} failed".format(tool))
+                os.chdir(save_cwd)
+                return False
             print("making and installing {}".format(tool))
             proc = subprocess.Popen([
                 'make', '-j', str(cpu_count()), 'install'
@@ -243,8 +265,11 @@ def build_autotools():
             stdout,stderr = proc.communicate()
             if 0 != proc.returncode:
                 print(stdout)
-                raise RuntimeError("make of {} failed".format(tool))
+                print("make of {} failed".format(tool))
+                os.chdir(save_cwd)
+                return False
     os.chdir(save_cwd)
+    return True
 
 # Download, unzip, configure, and make parasail C library from github.
 # Attempt to skip steps that may have already completed.
@@ -302,7 +327,9 @@ def build_parasail(libname):
             if platform.system() == "Darwin" and 'M4' not in os.environ:
                 os.environ['M4'] = '/usr/bin/m4'
             print("PATH={}".format(os.environ['PATH']))
-            build_autotools()
+            if not build_autotools():
+                if not build_autotools(True):
+                    raise RuntimeError("building autotools failed")
             if not run_autoreconf(root):
                 raise RuntimeError("autoreconf -fi failed")
     root = find_file('configure', parasail_root)
