@@ -11,7 +11,7 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 -------------------
-1.2.3_ - 2020-12-15
+1.2.3_ - 2020-12-16
 -------------------
 - Fix #57 Install error with parasail v1.2.2
 
