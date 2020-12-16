@@ -11,6 +11,11 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 -------------------
+1.2.3_ - 2020-12-15
+-------------------
+- Fix #57 Install error with parasail v1.2.2
+
+-------------------
 1.2.2_ - 2020-12-01
 -------------------
 - Fix #55 Error installing parasail on macos
@@ -153,7 +158,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.2.2...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.2.3...master
+.. _1.2.3:   https://github.com/jeffdaily/parasail-python/compare/v1.2.2...v1.2.3
 .. _1.2.2:   https://github.com/jeffdaily/parasail-python/compare/v1.2.1...v1.2.2
 .. _1.2.1:   https://github.com/jeffdaily/parasail-python/compare/v1.2...v1.2.1
 .. _1.2:     https://github.com/jeffdaily/parasail-python/compare/v1.1.20...v1.2
