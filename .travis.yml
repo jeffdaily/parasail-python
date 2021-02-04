@@ -25,6 +25,11 @@ jobs:
         # make sure it's on PATH as 'python3'
         - ln -s /c/Python38/python.exe /c/Python38/python3.exe
 
+# wheels are universal, py2/3, so we only need to build for one version
+env:
+  global:
+    - CIBW_BUILD="cp37-*"
+
 install:
   - python3 -m pip install cibuildwheel==1.8.0
 
