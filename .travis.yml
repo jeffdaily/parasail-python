@@ -27,7 +27,8 @@ jobs:
 env:
   global:
     - CIBW_BUILD="cp37-*"
-    - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
+#   - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
+    - CIBW_TEST_COMMAND="python3 {project}/tests/test_basic.py"
     - CIBW_BUILD_VERBOSITY=3
 
 install:

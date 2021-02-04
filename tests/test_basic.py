@@ -1,6 +1,7 @@
 import parasail
 from unittest import TestCase, main
 
+print("parasail is using C lib version", parasail.version())
 
 class Tests(TestCase):
 
@@ -24,4 +25,4 @@ class Tests(TestCase):
 
 
 if __name__ == '__main__':
-    main()
+    main(verbosity=2)
