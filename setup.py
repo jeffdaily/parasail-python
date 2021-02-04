@@ -367,6 +367,67 @@ def build_parasail(libname):
     print("copying {} to {}".format(src,dst))
     shutil.copy(src,dst)
 
+# Download, unzip, configure, and build parasail C library from github.
+# Attempt to skip steps that may have already completed.
+def build_parasail_cmake(libname):
+    archive = 'parasail-master.zip'
+    unzipped_archive = 'parasail-master'
+    destdir = os.getcwd()
+
+    if not os.path.exists(archive):
+        print("Downloading latest parasail master")
+        theurl = 'https://github.com/jeffdaily/parasail/archive/master.zip'
+        for attempt in range(10):
+            try:
+                name,hdrs = urlretrieve(theurl, archive)
+            except Exception as e:
+                print(repr(e))
+                print("Will retry in {} seconds".format(TIMEOUT))
+                time.sleep(TIMEOUT)
+            else:
+                break
+        else:
+            # we failed all the attempts - deal with the consequences.
+            raise RuntimeError("All attempts to download latest parasail master have failed")
+    else:
+        print("Archive '{}' already downloaded".format(archive))
+
+    if not os.path.exists(unzipped_archive):
+        print("Unzipping parasail master archive")
+        unzip(archive, destdir)
+    else:
+        print("Archive '{}' already unzipped to {}".format(archive,destdir))
+
+    # need to search for a file specific to top-level parasail archive
+    parasail_root = find_file('version.sh')
+    if not os.access(os.path.join(parasail_root,'version.sh'), os.X_OK):
+        print("fixing executable bits after unzipping")
+        fix_permissions(parasail_root)
+    else:
+        print("parasail archive executable permissions ok")
+
+    print("running cmake for parasail in directory {}".format(parasail_root))
+    retcode = subprocess.Popen([
+        'cmake',
+        '.',
+        ], cwd=parasail_root).wait()
+    if 0 != retcode:
+        raise RuntimeError("cmake failed")
+
+    print("building parasail")
+    retcode = subprocess.Popen([
+        'cmake',
+        '--build',
+        '.'
+        ], cwd=parasail_root).wait()
+    if 0 != retcode:
+        raise RuntimeError("cmake --build failed")
+
+    src = os.path.join(parasail_root, libname)
+    dst = 'parasail'
+    print("copying {} to {}".format(src,dst))
+    shutil.copy(src,dst)
+
 def github_api_json(address):
     import json
     import sys
@@ -444,6 +505,8 @@ def prepare_shared_lib():
         print("{} not found, attempting to build".format(libpath))
         if platform.system() == "Windows":
             download_windows_dll()
+        elif "PARASAIL_CMAKE_BUILD" in os.environ:
+            build_parasail_cmake(libname)
         else:
             build_parasail(libname)
     if not os.path.exists(libpath):
