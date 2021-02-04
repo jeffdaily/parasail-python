@@ -19,10 +19,13 @@ class Tests(TestCase):
         self.assertEqual(result.score, 4)
 
     def test4(self):
+        print('profile = parasail.profile_create_8("asdf", parasail.blosum62)')
         profile = parasail.profile_create_8("asdf", parasail.blosum62)
+        print('result = parasail.sw_striped_profile_8(profile, "asdf", 10, 1)')
         result = parasail.sw_striped_profile_8(profile, "asdf", 10, 1)
+        print('self.assertEqual(result.score, 20)')
         self.assertEqual(result.score, 20)
 
 
 if __name__ == '__main__':
-    main(verbosity=2)
+    main(verbosity=3)
