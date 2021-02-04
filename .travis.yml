@@ -11,10 +11,6 @@ jobs:
     - services: docker
       arch: ppc64le
       env: CIBW_ENVIRONMENT="PARASAIL_CMAKE_BUILD=1"
-    # perform a linux S390X build
-    - services: docker
-      arch: s390x
-      env: CIBW_ENVIRONMENT="PARASAIL_CMAKE_BUILD=1"
     # and a mac build
     - os: osx
       language: shell
