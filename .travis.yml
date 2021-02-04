@@ -4,6 +4,15 @@ jobs:
   include:
     # perform a linux build
     - services: docker
+    # perform a linux ARMv8 build
+    - services: docker
+      arch: arm64
+    # perform a linux PPC64LE build
+    - services: docker
+      arch: ppc64le
+    # perform a linux S390X build
+    - services: docker
+      arch: s390x
     # and a mac build
     - os: osx
       language: shell
@@ -11,27 +20,23 @@ jobs:
     - os: windows
       language: shell
       before_install:
-        - choco install python --version 3.7.5
-        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-
-# all three OSes agree about 'pip3'
-# 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
-# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
-env:
-  global:
-    - CIBW_BUILD="cp37-*"
-    - CIBW_TEST_COMMAND_MACOS="python3 -m unittest discover {project}/tests"
-    - CIBW_TEST_COMMAND_LINUX="python3 -m unittest discover {project}/tests"
-    - CIBW_TEST_COMMAND_WINDOWS="python -m unittest discover {project}/tests"
-    - TWINE_USERNAME=__token__
+        - choco install python --version 3.8.0
+        - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
+        # make sure it's on PATH as 'python3'
+        - ln -s /c/Python38/python.exe /c/Python38/python3.exe
 
 install:
-  - pip3 install twine cibuildwheel==1.6.4 wheel
-  - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
+  - python3 -m pip install cibuildwheel==1.8.0
 
 script:
-  - cibuildwheel --output-dir wheelhouse
-  - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
+  # build the wheels, put them into './wheelhouse'
+  - python3 -m cibuildwheel --output-dir wheelhouse
 
-after_success:
-  - if [[ $TRAVIS_TAG ]]; then python3 -m twine upload wheelhouse/* || python -m twine upload wheelhouse/* ; fi
+deploy:
+  provider: pypi
+  username: "__token__"
+  skip_cleanup: true
+  on:
+    tags: true
+  password:
+    secure: eYjiRfOwJ42xCjI15TV8tqqq96yuZiHfGGxJAPQBEDq3X5UOREPhHqBH1KZjVvr60aZ5rH0dFCjD3LCvnNxnJoMUl4LHgpbWzHKrGYUFcKsMf7YCRtiOTKQmLYPsBP43936Xvz1LL/Ont6rUZpfwVPlgX2R4//mA0o5HJfTHJIt+sq3Nhu9CRg+45IhsmHrEjZsN6YdmmqLdi4jeObsiN8fZKQsGPkIigmI4++VFfK+ff9TcW6uB1Q7XjLpYEZrro2ye2TK6D29WxXq7jX04vZIgpLKMMfIClM5Rv4TABubbK0RjOu7NOLEOotG23vwIzfStcrpiuKG3gwiH0cKU33l247l96EpDov4olgU6J4jMii1rwWQBbParHEiJ2NE5SKk/j3QKwXJImd0DAw3ZuGsmKH4+a+g6d79Wo9Pvek3u+8KzXTYrEtX7ngUrdGsokW72g392sP9RSBpxvMYGIt3rQ8hWc2sOrvKuw87cW4ailzwK0TaXTXMA89V/K4FN9wWBeK3wQO4lYAfK82Pi6/OiSnQs8W5yqucpxixaPfu+CmGDb5JNEPiUg5uL9dIx8odAtnvscmuwgutZsJWZAj4cOhALQqQduc/nUzTsg6fagNlNPFErygNM7CszPwJ6nPoOe+IPm7ETQs1FAdIFFH+Th28I1ZqIX1VoZQ9mCIE=
