@@ -157,9 +157,12 @@ def run_autoreconf(root):
     all_good = True
     tools = ['perl', 'm4', 'autoconf', 'automake', 'libtoolize', 'autoreconf']
     if platform.system() == "Darwin":
+        print("Darwin detected, replacing libtoolize with glibtoolize")
         tools[4] = 'glibtoolize'
         os.environ['LIBTOOL'] = 'glibtool'
         os.environ['LIBTOOLIZE'] = 'glibtoolize'
+    print("autotools list")
+    print(tools)
     for tool in tools:
         try:
             output = subprocess.check_output([tool, '--version'],
