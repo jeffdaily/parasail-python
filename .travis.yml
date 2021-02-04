@@ -30,6 +30,7 @@ jobs:
 env:
   global:
     - CIBW_BUILD="cp37-*"
+    - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
 
 install:
   - python3 -m pip install cibuildwheel==1.8.0
