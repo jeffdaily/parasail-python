@@ -274,16 +274,16 @@ def build_autotools(patch_m4=False):
     os.chdir(save_cwd)
     return True
 
-# Download, unzip, configure, and make parasail C library from github.
-# Attempt to skip steps that may have already completed.
-def build_parasail(libname):
-    archive = 'parasail-master.zip'
-    unzipped_archive = 'parasail-master'
+# Download and unzip parasail C library from github.
+def download_parasail():
+    branchname = os.environ.get("PARASAIL_BRANCH", "master")
+    archive = 'parasail-%s.zip' % branchname
+    unzipped_archive = 'parasail-%s' % branchname
     destdir = os.getcwd()
 
     if not os.path.exists(archive):
-        print("Downloading latest parasail master")
-        theurl = 'https://github.com/jeffdaily/parasail/archive/master.zip'
+        theurl = 'https://github.com/jeffdaily/parasail/archive/%s.zip' % branchname
+        print("Downloading parasail from %s" % theurl)
         for attempt in range(10):
             try:
                 name,hdrs = urlretrieve(theurl, archive)
@@ -295,12 +295,12 @@ def build_parasail(libname):
                 break
         else:
             # we failed all the attempts - deal with the consequences.
-            raise RuntimeError("All attempts to download latest parasail master have failed")
+            raise RuntimeError("All attempts to download parasail have failed")
     else:
         print("Archive '{}' already downloaded".format(archive))
 
     if not os.path.exists(unzipped_archive):
-        print("Unzipping parasail master archive")
+        print("Unzipping parasail archive")
         unzip(archive, destdir)
     else:
         print("Archive '{}' already unzipped to {}".format(archive,destdir))
@@ -312,7 +312,12 @@ def build_parasail(libname):
         fix_permissions(parasail_root)
     else:
         print("parasail archive executable permissions ok")
+    return parasail_root
 
+# Download, unzip, configure, and make parasail C library from github.
+# Attempt to skip steps that may have already completed.
+def build_parasail(libname):
+    parasail_root = download_parasail()
     root = find_file('configure', parasail_root)
     if root is None:
         print("Unable to find parasail configure script")
@@ -370,42 +375,7 @@ def build_parasail(libname):
 # Download, unzip, configure, and build parasail C library from github.
 # Attempt to skip steps that may have already completed.
 def build_parasail_cmake(libname):
-    archive = 'parasail-master.zip'
-    unzipped_archive = 'parasail-master'
-    destdir = os.getcwd()
-
-    if not os.path.exists(archive):
-        print("Downloading latest parasail master")
-        theurl = 'https://github.com/jeffdaily/parasail/archive/master.zip'
-        for attempt in range(10):
-            try:
-                name,hdrs = urlretrieve(theurl, archive)
-            except Exception as e:
-                print(repr(e))
-                print("Will retry in {} seconds".format(TIMEOUT))
-                time.sleep(TIMEOUT)
-            else:
-                break
-        else:
-            # we failed all the attempts - deal with the consequences.
-            raise RuntimeError("All attempts to download latest parasail master have failed")
-    else:
-        print("Archive '{}' already downloaded".format(archive))
-
-    if not os.path.exists(unzipped_archive):
-        print("Unzipping parasail master archive")
-        unzip(archive, destdir)
-    else:
-        print("Archive '{}' already unzipped to {}".format(archive,destdir))
-
-    # need to search for a file specific to top-level parasail archive
-    parasail_root = find_file('version.sh')
-    if not os.access(os.path.join(parasail_root,'version.sh'), os.X_OK):
-        print("fixing executable bits after unzipping")
-        fix_permissions(parasail_root)
-    else:
-        print("parasail archive executable permissions ok")
-
+    parasail_root = download_parasail()
     print("running cmake for parasail in directory {}".format(parasail_root))
     retcode = subprocess.Popen([
         'cmake',
