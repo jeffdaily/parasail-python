@@ -14,6 +14,7 @@ jobs:
     # perform a linux S390X build
     - services: docker
       arch: s390x
+      env: CIBW_ENVIRONMENT="PARASAIL_CMAKE_BUILD=1"
     # and a mac build
     - os: osx
       language: shell
@@ -31,6 +32,7 @@ env:
   global:
     - CIBW_BUILD="cp37-*"
     - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
+    - CIBW_BUILD_VERBOSITY=3
 
 install:
   - python3 -m pip install cibuildwheel==1.8.0
