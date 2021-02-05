@@ -14,7 +14,7 @@ jobs:
         - choco install python --version 3.7.5
         - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
         # make sure it's on PATH as 'python3'
-        - ln -s /c/Python38/python.exe /c/Python38/python3.exe
+        - ln -s /c/Python37/python.exe /c/Python37/python3.exe
 
 env:
   global:
