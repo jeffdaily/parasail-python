@@ -13,16 +13,14 @@ jobs:
       before_install:
         - choco install python --version 3.7.5
         - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+        # make sure it's on PATH as 'python3'
+        - ln -s /c/Python38/python.exe /c/Python38/python3.exe
 
 # all three OSes agree about 'pip3'
-# 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
-# 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 env:
   global:
     - CIBW_BUILD="cp37-*"
-    - CIBW_TEST_COMMAND_MACOS="python3 -m unittest discover {project}/tests"
-    - CIBW_TEST_COMMAND_LINUX="python3 -m unittest discover {project}/tests"
-    - CIBW_TEST_COMMAND_WINDOWS="python -m unittest discover {project}/tests"
+    - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
     - TWINE_USERNAME=__token__
 
 install:
@@ -31,7 +29,7 @@ install:
 
 script:
   - cibuildwheel --output-dir wheelhouse
-  - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
+  - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python3 setup.py sdist -d wheelhouse; fi
 
 after_success:
-  - if [[ $TRAVIS_TAG ]]; then python3 -m twine upload wheelhouse/* || python -m twine upload wheelhouse/* ; fi
+  - if [[ $TRAVIS_TAG ]]; then python3 -m twine upload wheelhouse/* ; fi
