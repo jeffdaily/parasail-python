@@ -23,7 +23,8 @@ env:
     - TWINE_USERNAME=__token__
 
 install:
-  - python3 -m pip install twine cibuildwheel==1.6.4 wheel
+  - python3 -m pip install cibuildwheel==1.6.4 wheel
+  - python3 -m pip install --upgrade --upgrade-strategy eager twine
   - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
@@ -31,4 +32,5 @@ script:
   - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python3 setup.py sdist -d wheelhouse; fi
 
 after_success:
+  - if [[ $TRAVIS_TAG ]]; then python3 -m pip install --upgrade --upgrade-strategy eager twine ; fi
   - if [[ $TRAVIS_TAG ]]; then python3 -m twine upload wheelhouse/* ; fi
