@@ -23,7 +23,7 @@ env:
     - CIBW_TEST_COMMAND_MACOS="python3 -m unittest discover {project}/tests"
     - CIBW_TEST_COMMAND_LINUX="python3 -m unittest discover {project}/tests"
     - CIBW_TEST_COMMAND_WINDOWS="python -m unittest discover {project}/tests"
-    - CIBW_BUILD_VERBOSITY=3
+    - TWINE_USERNAME=__token__
 
 install:
   - pip3 install twine cibuildwheel==1.6.4 wheel
@@ -33,11 +33,5 @@ script:
   - cibuildwheel --output-dir wheelhouse
   - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python setup.py sdist -d wheelhouse; fi
 
-deploy:
-  provider: pypi
-  username: "__token__"
-  skip_cleanup: true
-  on:
-    tags: true
-  password:
-    secure: eYjiRfOwJ42xCjI15TV8tqqq96yuZiHfGGxJAPQBEDq3X5UOREPhHqBH1KZjVvr60aZ5rH0dFCjD3LCvnNxnJoMUl4LHgpbWzHKrGYUFcKsMf7YCRtiOTKQmLYPsBP43936Xvz1LL/Ont6rUZpfwVPlgX2R4//mA0o5HJfTHJIt+sq3Nhu9CRg+45IhsmHrEjZsN6YdmmqLdi4jeObsiN8fZKQsGPkIigmI4++VFfK+ff9TcW6uB1Q7XjLpYEZrro2ye2TK6D29WxXq7jX04vZIgpLKMMfIClM5Rv4TABubbK0RjOu7NOLEOotG23vwIzfStcrpiuKG3gwiH0cKU33l247l96EpDov4olgU6J4jMii1rwWQBbParHEiJ2NE5SKk/j3QKwXJImd0DAw3ZuGsmKH4+a+g6d79Wo9Pvek3u+8KzXTYrEtX7ngUrdGsokW72g392sP9RSBpxvMYGIt3rQ8hWc2sOrvKuw87cW4ailzwK0TaXTXMA89V/K4FN9wWBeK3wQO4lYAfK82Pi6/OiSnQs8W5yqucpxixaPfu+CmGDb5JNEPiUg5uL9dIx8odAtnvscmuwgutZsJWZAj4cOhALQqQduc/nUzTsg6fagNlNPFErygNM7CszPwJ6nPoOe+IPm7ETQs1FAdIFFH+Th28I1ZqIX1VoZQ9mCIE=
+after_success:
+  - if [[ $TRAVIS_TAG ]]; then python3 -m twine upload wheelhouse/* || python -m twine upload wheelhouse/* ; fi
