@@ -16,7 +16,6 @@ jobs:
         # make sure it's on PATH as 'python3'
         - ln -s /c/Python38/python.exe /c/Python38/python3.exe
 
-# all three OSes agree about 'pip3'
 env:
   global:
     - CIBW_BUILD="cp37-*"
@@ -24,7 +23,7 @@ env:
     - TWINE_USERNAME=__token__
 
 install:
-  - pip3 install twine cibuildwheel==1.6.4 wheel
+  - python3 -m pip install twine cibuildwheel==1.6.4 wheel
   - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
