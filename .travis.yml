@@ -28,7 +28,7 @@ install:
   - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
-  - cibuildwheel --output-dir wheelhouse
+  - python3 -m cibuildwheel --output-dir wheelhouse
   - if [[ "$TRAVIS_OS_NAME" = "windows" ]];  then python3 setup.py sdist -d wheelhouse; fi
 
 after_success:
