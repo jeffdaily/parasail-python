@@ -16,11 +16,14 @@ jobs:
         # make sure it's on PATH as 'python3'
         - ln -s /c/Python37/python.exe /c/Python37/python3.exe
 
+# cibuildwheel creates a virtualenv for the test
+# it seems to use "python" not "python3" for testing
+# while the rest of the build etc should use python3
 env:
   global:
     - CIBW_BUILD_VERBOSITY=3
     - CIBW_BUILD="cp37-*"
-    - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
+    - CIBW_TEST_COMMAND="python -m unittest discover {project}/tests"
     - TWINE_USERNAME=__token__
 
 install:
