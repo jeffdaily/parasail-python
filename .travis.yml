@@ -18,6 +18,7 @@ jobs:
 
 env:
   global:
+    - CIBW_BUILD_VERBOSITY=3
     - CIBW_BUILD="cp37-*"
     - CIBW_TEST_COMMAND="python3 -m unittest discover {project}/tests"
     - TWINE_USERNAME=__token__
@@ -25,7 +26,6 @@ env:
 install:
   - python3 -m pip install cibuildwheel==1.6.4 wheel
   - python3 -m pip install --upgrade --upgrade-strategy eager twine
-  - wget -O parasail-master.zip https://github.com/jeffdaily/parasail/archive/master.zip
 
 script:
   - python3 -m cibuildwheel --output-dir wheelhouse
