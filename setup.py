@@ -13,6 +13,7 @@ except ImportError:
 import tarfile
 import zipfile
 
+from distutils.dir_util import copy_tree
 from distutils.util import get_platform
 from setuptools import setup
 from setuptools.command.install import install as install_
@@ -92,6 +93,11 @@ def get_libname():
     elif platform.system() == "Windows":
         libname = "parasail.dll"
     return libname
+
+def get_includes():
+    return ["include/*.h",
+            "include/parasail/*.h",
+            "include/parasail/matrices/*.h"]
 
 def unzip(archive, destdir):
     thefile=zipfile.ZipFile(archive)
@@ -364,6 +370,16 @@ def build_parasail(libname):
     print("copying {} to {}".format(src,dst))
     shutil.copy(src,dst)
 
+    # copy headers into the parasail directory, so they can be added to the wheel
+    parasail_headers = os.path.join(parasail_root, "parasail")
+    dst = os.path.join("parasail", "include", "parasail")
+    print("copying {} to {}".format(parasail_headers, dst))
+    copy_tree(parasail_headers, dst)
+    parasail_h = os.path.join(parasail_root, "parasail.h")
+    dst = os.path.join("parasail", "include")
+    print("copying {} to {}".format(parasail_h, dst))
+    shutil.copy(parasail_h, dst)
+
 def github_api_json(address):
     import json
     import sys
@@ -431,6 +447,12 @@ def download_windows_dll():
     print("copying {} to {}".format(src,dst))
     shutil.copy(src,dst)
 
+    # copy headers into the parasail directory, so they can be added to the wheel
+    headers_src = os.path.join(root, "..", "include")
+    dst = os.path.join("parasail", "include")
+    print("copying {} to {}".format(headers_src, dst))
+    copy_tree(headers_src, dst)
+    
 def prepare_shared_lib():
     libname = get_libname()
     libpath = os.path.join("parasail", libname)
@@ -488,7 +510,7 @@ if __name__ == "__main__":
         maintainer_email=find_meta("email"),
         keywords=KEYWORDS,
         packages=PACKAGES,
-        package_data={"parasail": [get_libname()]},
+        package_data={"parasail": [get_libname()] + get_includes()},
         cmdclass=cmdclass,
         zip_safe=False,
         classifiers=CLASSIFIERS,

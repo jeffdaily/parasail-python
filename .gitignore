@@ -7,3 +7,4 @@ parasail.egg-info/
 *.dll
 parasail-master*
 autotools/
+parasail/include/**

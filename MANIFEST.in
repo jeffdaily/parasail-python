@@ -9,6 +9,7 @@ include parasail/bindings_v2.py
 exclude parasail/libparasail.so
 exclude parasail/libparasail.dylib
 exclude parasail/parasail.dll
+recursive-exclude parasail/include *.h
 include setup.cfg
 include setup.py
 include tests/test_basic.py

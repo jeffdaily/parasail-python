@@ -23,6 +23,7 @@ if platform.system() == 'Darwin':
 elif platform.system() == 'Windows':
     _libname = "parasail.dll"
 _libpath = os.path.join(os.path.dirname(__file__), _libname)
+_includepath = os.path.join(os.path.dirname(__file__), "include")
 
 _verbose = os.environ.get("PARASAIL_VERBOSE", False)
 
@@ -92,3 +93,12 @@ if major == 1:
 else:
     from parasail.bindings_v2 import *
 
+def get_include():
+    """ Returns the path of the Parasail C library include files.
+    """
+    return _includepath
+
+def get_library():
+    """ Returns the path of the Parasail C library shared object file.
+    """
+    return _libpath
