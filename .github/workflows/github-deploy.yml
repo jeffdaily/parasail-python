@@ -7,8 +7,8 @@ jobs:
     env:
       # automake seems to be missing from macos builds; autoconf, glibtool, and m4 exist
       CIBW_BEFORE_BUILD_MACOS: brew install automake
-      # autoreconf failed, try to avoid having to build and install our own autotools
-      CIBW_BEFORE_BUILD_LINUX: apt update && apt install build-essential libtool autotools-dev automake
+      # autoreconf failed for libtool, try to avoid having to build and install our own autotools
+      CIBW_BEFORE_BUILD_LINUX: libtoolize --copy || true
       # increase debugging output
       CIBW_BUILD_VERBOSITY: 3
       # Only build on CPython 3.8
