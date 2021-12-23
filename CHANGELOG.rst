@@ -11,6 +11,12 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 ------------------
+1.3_ - 2021-12-23
+------------------
+- Migrate to GitHub Actions
+- Require parasail >= 2.5 for new position-specific scoring matrix support
+
+------------------
 1.2.4 - 2021-02-06
 ------------------
 - Fix #60 Missing wheels on PyPI
