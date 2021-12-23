@@ -2,7 +2,6 @@ include CHANGELOG.rst
 include COPYING
 include DISCLAIMER
 include README.rst
-include appveyor.yml
 include parasail/__init__.py
 include parasail/bindings_v1.py
 include parasail/bindings_v2.py
