@@ -85,6 +85,8 @@ def version():
     return major.value, minor.value, patch.value
 
 major,minor,patch = version()
+if (major,minor,patch) < (2,5,0):
+    raise ImportError("incompatible parasail C library used, must be version 2.5 or greater")
 
 # now that we know the version, import the correct bindings
 if major == 1:
