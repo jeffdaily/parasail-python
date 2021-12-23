@@ -7,6 +7,8 @@ jobs:
     env:
       # automake seems to be missing from macos builds; autoconf, glibtool, and m4 exist
       CIBW_BEFORE_BUILD_MACOS: brew install automake
+      # increase debugging output
+      CIBW_BUILD_VERBOSITY: 3
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
