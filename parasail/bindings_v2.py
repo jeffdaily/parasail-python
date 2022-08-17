@@ -1597,6 +1597,104 @@ def sg_qe_db_stats_rowcol(s1, s2, open, extend, matrix):
         b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
         len(s1), len(s2))
 
+_lib.parasail_sg_qb_db.argtypes = _argtypes
+_lib.parasail_sg_qb_db.restype = c_result_p
+def sg_qb_db(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table.restype = c_result_p
+def sg_qb_db_table(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol.restype = c_result_p
+def sg_qb_db_rowcol(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_trace.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace.restype = c_result_p
+def sg_qb_db_trace(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_stats.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats.restype = c_result_p
+def sg_qb_db_stats(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table.restype = c_result_p
+def sg_qb_db_stats_table(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol.restype = c_result_p
+def sg_qb_db_stats_rowcol(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de.argtypes = _argtypes
+_lib.parasail_sg_qe_de.restype = c_result_p
+def sg_qe_de(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table.restype = c_result_p
+def sg_qe_de_table(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol.restype = c_result_p
+def sg_qe_de_rowcol(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_trace.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace.restype = c_result_p
+def sg_qe_de_trace(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_stats.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats.restype = c_result_p
+def sg_qe_de_stats(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table.restype = c_result_p
+def sg_qe_de_stats_table(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol.restype = c_result_p
+def sg_qe_de_stats_rowcol(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
 _lib.parasail_nw_scan.argtypes = _argtypes
 _lib.parasail_nw_scan.restype = c_result_p
 def nw_scan(s1, s2, open, extend, matrix):
@@ -2133,6 +2231,104 @@ _lib.parasail_sg_qe_db_stats_rowcol_scan.argtypes = _argtypes
 _lib.parasail_sg_qe_db_stats_rowcol_scan.restype = c_result_p
 def sg_qe_db_stats_rowcol_scan(s1, s2, open, extend, matrix):
     return Result(_lib.parasail_sg_qe_db_stats_rowcol_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan.restype = c_result_p
+def sg_qb_db_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan.restype = c_result_p
+def sg_qb_db_table_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan.restype = c_result_p
+def sg_qb_db_rowcol_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_trace_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan.restype = c_result_p
+def sg_qb_db_trace_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_stats_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan.restype = c_result_p
+def sg_qb_db_stats_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan.restype = c_result_p
+def sg_qb_db_stats_table_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan.restype = c_result_p
+def sg_qe_de_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan.restype = c_result_p
+def sg_qe_de_table_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan.restype = c_result_p
+def sg_qe_de_rowcol_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_trace_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan.restype = c_result_p
+def sg_qe_de_trace_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_stats_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan.restype = c_result_p
+def sg_qe_de_stats_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan.restype = c_result_p
+def sg_qe_de_stats_table_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan(
         b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
         len(s1), len(s2))
 
@@ -10221,6 +10417,1476 @@ def sg_qe_db_stats_rowcol_diag_sat(s1, s2, open, extend, matrix):
         b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
         len(s1), len(s2))
 
+_lib.parasail_sg_qb_db_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_64.restype = c_result_p
+def sg_qb_db_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_32.restype = c_result_p
+def sg_qb_db_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_16.restype = c_result_p
+def sg_qb_db_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_8.restype = c_result_p
+def sg_qb_db_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_sat.restype = c_result_p
+def sg_qb_db_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_64.restype = c_result_p
+def sg_qb_db_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_32.restype = c_result_p
+def sg_qb_db_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_16.restype = c_result_p
+def sg_qb_db_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_8.restype = c_result_p
+def sg_qb_db_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_sat.restype = c_result_p
+def sg_qb_db_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_diag_64.restype = c_result_p
+def sg_qb_db_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_diag_32.restype = c_result_p
+def sg_qb_db_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_diag_16.restype = c_result_p
+def sg_qb_db_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_diag_8.restype = c_result_p
+def sg_qb_db_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_diag_sat.restype = c_result_p
+def sg_qb_db_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_64.restype = c_result_p
+def sg_qb_db_table_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_32.restype = c_result_p
+def sg_qb_db_table_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_16.restype = c_result_p
+def sg_qb_db_table_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_8.restype = c_result_p
+def sg_qb_db_table_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_sat.restype = c_result_p
+def sg_qb_db_table_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_64.restype = c_result_p
+def sg_qb_db_table_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_32.restype = c_result_p
+def sg_qb_db_table_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_16.restype = c_result_p
+def sg_qb_db_table_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_8.restype = c_result_p
+def sg_qb_db_table_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_sat.restype = c_result_p
+def sg_qb_db_table_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_diag_64.restype = c_result_p
+def sg_qb_db_table_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_diag_32.restype = c_result_p
+def sg_qb_db_table_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_diag_16.restype = c_result_p
+def sg_qb_db_table_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_diag_8.restype = c_result_p
+def sg_qb_db_table_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_diag_sat.restype = c_result_p
+def sg_qb_db_table_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_table_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_64.restype = c_result_p
+def sg_qb_db_rowcol_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_32.restype = c_result_p
+def sg_qb_db_rowcol_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_16.restype = c_result_p
+def sg_qb_db_rowcol_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_8.restype = c_result_p
+def sg_qb_db_rowcol_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_sat.restype = c_result_p
+def sg_qb_db_rowcol_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_64.restype = c_result_p
+def sg_qb_db_rowcol_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_32.restype = c_result_p
+def sg_qb_db_rowcol_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_16.restype = c_result_p
+def sg_qb_db_rowcol_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_8.restype = c_result_p
+def sg_qb_db_rowcol_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_sat.restype = c_result_p
+def sg_qb_db_rowcol_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_diag_64.restype = c_result_p
+def sg_qb_db_rowcol_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_diag_32.restype = c_result_p
+def sg_qb_db_rowcol_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_diag_16.restype = c_result_p
+def sg_qb_db_rowcol_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_diag_8.restype = c_result_p
+def sg_qb_db_rowcol_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_diag_sat.restype = c_result_p
+def sg_qb_db_rowcol_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_rowcol_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_trace_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_64.restype = c_result_p
+def sg_qb_db_trace_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_32.restype = c_result_p
+def sg_qb_db_trace_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_16.restype = c_result_p
+def sg_qb_db_trace_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_8.restype = c_result_p
+def sg_qb_db_trace_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_sat.restype = c_result_p
+def sg_qb_db_trace_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_64.restype = c_result_p
+def sg_qb_db_trace_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_32.restype = c_result_p
+def sg_qb_db_trace_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_16.restype = c_result_p
+def sg_qb_db_trace_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_8.restype = c_result_p
+def sg_qb_db_trace_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_sat.restype = c_result_p
+def sg_qb_db_trace_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_diag_64.restype = c_result_p
+def sg_qb_db_trace_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_diag_32.restype = c_result_p
+def sg_qb_db_trace_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_diag_16.restype = c_result_p
+def sg_qb_db_trace_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_diag_8.restype = c_result_p
+def sg_qb_db_trace_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_trace_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_diag_sat.restype = c_result_p
+def sg_qb_db_trace_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_trace_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qb_db_stats_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_64.restype = c_result_p
+def sg_qb_db_stats_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_32.restype = c_result_p
+def sg_qb_db_stats_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_16.restype = c_result_p
+def sg_qb_db_stats_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_8.restype = c_result_p
+def sg_qb_db_stats_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_sat.restype = c_result_p
+def sg_qb_db_stats_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_64.restype = c_result_p
+def sg_qb_db_stats_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_32.restype = c_result_p
+def sg_qb_db_stats_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_16.restype = c_result_p
+def sg_qb_db_stats_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_8.restype = c_result_p
+def sg_qb_db_stats_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_sat.restype = c_result_p
+def sg_qb_db_stats_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_diag_64.restype = c_result_p
+def sg_qb_db_stats_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_diag_32.restype = c_result_p
+def sg_qb_db_stats_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_diag_16.restype = c_result_p
+def sg_qb_db_stats_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_diag_8.restype = c_result_p
+def sg_qb_db_stats_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_diag_sat.restype = c_result_p
+def sg_qb_db_stats_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_64.restype = c_result_p
+def sg_qb_db_stats_table_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_32.restype = c_result_p
+def sg_qb_db_stats_table_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_16.restype = c_result_p
+def sg_qb_db_stats_table_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_8.restype = c_result_p
+def sg_qb_db_stats_table_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_sat.restype = c_result_p
+def sg_qb_db_stats_table_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_64.restype = c_result_p
+def sg_qb_db_stats_table_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_32.restype = c_result_p
+def sg_qb_db_stats_table_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_16.restype = c_result_p
+def sg_qb_db_stats_table_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_8.restype = c_result_p
+def sg_qb_db_stats_table_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_sat.restype = c_result_p
+def sg_qb_db_stats_table_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_diag_64.restype = c_result_p
+def sg_qb_db_stats_table_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_diag_32.restype = c_result_p
+def sg_qb_db_stats_table_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_diag_16.restype = c_result_p
+def sg_qb_db_stats_table_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_diag_8.restype = c_result_p
+def sg_qb_db_stats_table_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_diag_sat.restype = c_result_p
+def sg_qb_db_stats_table_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_table_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_64.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_32.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_16.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_8.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_sat.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_64.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_32.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_16.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_8.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_sat.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_diag_64.restype = c_result_p
+def sg_qb_db_stats_rowcol_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_diag_32.restype = c_result_p
+def sg_qb_db_stats_rowcol_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_diag_16.restype = c_result_p
+def sg_qb_db_stats_rowcol_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_diag_8.restype = c_result_p
+def sg_qb_db_stats_rowcol_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_diag_sat.restype = c_result_p
+def sg_qb_db_stats_rowcol_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_64.restype = c_result_p
+def sg_qe_de_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_32.restype = c_result_p
+def sg_qe_de_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_16.restype = c_result_p
+def sg_qe_de_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_8.restype = c_result_p
+def sg_qe_de_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_sat.restype = c_result_p
+def sg_qe_de_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_64.restype = c_result_p
+def sg_qe_de_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_32.restype = c_result_p
+def sg_qe_de_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_16.restype = c_result_p
+def sg_qe_de_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_8.restype = c_result_p
+def sg_qe_de_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_sat.restype = c_result_p
+def sg_qe_de_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_diag_64.restype = c_result_p
+def sg_qe_de_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_diag_32.restype = c_result_p
+def sg_qe_de_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_diag_16.restype = c_result_p
+def sg_qe_de_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_diag_8.restype = c_result_p
+def sg_qe_de_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_diag_sat.restype = c_result_p
+def sg_qe_de_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_64.restype = c_result_p
+def sg_qe_de_table_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_32.restype = c_result_p
+def sg_qe_de_table_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_16.restype = c_result_p
+def sg_qe_de_table_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_8.restype = c_result_p
+def sg_qe_de_table_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_sat.restype = c_result_p
+def sg_qe_de_table_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_64.restype = c_result_p
+def sg_qe_de_table_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_32.restype = c_result_p
+def sg_qe_de_table_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_16.restype = c_result_p
+def sg_qe_de_table_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_8.restype = c_result_p
+def sg_qe_de_table_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_sat.restype = c_result_p
+def sg_qe_de_table_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_diag_64.restype = c_result_p
+def sg_qe_de_table_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_diag_32.restype = c_result_p
+def sg_qe_de_table_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_diag_16.restype = c_result_p
+def sg_qe_de_table_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_diag_8.restype = c_result_p
+def sg_qe_de_table_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_diag_sat.restype = c_result_p
+def sg_qe_de_table_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_table_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_64.restype = c_result_p
+def sg_qe_de_rowcol_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_32.restype = c_result_p
+def sg_qe_de_rowcol_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_16.restype = c_result_p
+def sg_qe_de_rowcol_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_8.restype = c_result_p
+def sg_qe_de_rowcol_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_sat.restype = c_result_p
+def sg_qe_de_rowcol_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_64.restype = c_result_p
+def sg_qe_de_rowcol_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_32.restype = c_result_p
+def sg_qe_de_rowcol_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_16.restype = c_result_p
+def sg_qe_de_rowcol_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_8.restype = c_result_p
+def sg_qe_de_rowcol_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_sat.restype = c_result_p
+def sg_qe_de_rowcol_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_diag_64.restype = c_result_p
+def sg_qe_de_rowcol_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_diag_32.restype = c_result_p
+def sg_qe_de_rowcol_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_diag_16.restype = c_result_p
+def sg_qe_de_rowcol_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_diag_8.restype = c_result_p
+def sg_qe_de_rowcol_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_diag_sat.restype = c_result_p
+def sg_qe_de_rowcol_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_rowcol_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_trace_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_64.restype = c_result_p
+def sg_qe_de_trace_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_32.restype = c_result_p
+def sg_qe_de_trace_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_16.restype = c_result_p
+def sg_qe_de_trace_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_8.restype = c_result_p
+def sg_qe_de_trace_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_sat.restype = c_result_p
+def sg_qe_de_trace_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_64.restype = c_result_p
+def sg_qe_de_trace_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_32.restype = c_result_p
+def sg_qe_de_trace_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_16.restype = c_result_p
+def sg_qe_de_trace_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_8.restype = c_result_p
+def sg_qe_de_trace_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_sat.restype = c_result_p
+def sg_qe_de_trace_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_diag_64.restype = c_result_p
+def sg_qe_de_trace_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_diag_32.restype = c_result_p
+def sg_qe_de_trace_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_diag_16.restype = c_result_p
+def sg_qe_de_trace_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_diag_8.restype = c_result_p
+def sg_qe_de_trace_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_trace_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_diag_sat.restype = c_result_p
+def sg_qe_de_trace_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_trace_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2), s1, s2, matrix)
+
+_lib.parasail_sg_qe_de_stats_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_64.restype = c_result_p
+def sg_qe_de_stats_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_32.restype = c_result_p
+def sg_qe_de_stats_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_16.restype = c_result_p
+def sg_qe_de_stats_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_8.restype = c_result_p
+def sg_qe_de_stats_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_sat.restype = c_result_p
+def sg_qe_de_stats_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_64.restype = c_result_p
+def sg_qe_de_stats_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_32.restype = c_result_p
+def sg_qe_de_stats_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_16.restype = c_result_p
+def sg_qe_de_stats_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_8.restype = c_result_p
+def sg_qe_de_stats_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_sat.restype = c_result_p
+def sg_qe_de_stats_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_diag_64.restype = c_result_p
+def sg_qe_de_stats_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_diag_32.restype = c_result_p
+def sg_qe_de_stats_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_diag_16.restype = c_result_p
+def sg_qe_de_stats_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_diag_8.restype = c_result_p
+def sg_qe_de_stats_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_diag_sat.restype = c_result_p
+def sg_qe_de_stats_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_64.restype = c_result_p
+def sg_qe_de_stats_table_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_32.restype = c_result_p
+def sg_qe_de_stats_table_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_16.restype = c_result_p
+def sg_qe_de_stats_table_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_8.restype = c_result_p
+def sg_qe_de_stats_table_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_sat.restype = c_result_p
+def sg_qe_de_stats_table_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_64.restype = c_result_p
+def sg_qe_de_stats_table_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_32.restype = c_result_p
+def sg_qe_de_stats_table_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_16.restype = c_result_p
+def sg_qe_de_stats_table_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_8.restype = c_result_p
+def sg_qe_de_stats_table_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_sat.restype = c_result_p
+def sg_qe_de_stats_table_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_diag_64.restype = c_result_p
+def sg_qe_de_stats_table_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_diag_32.restype = c_result_p
+def sg_qe_de_stats_table_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_diag_16.restype = c_result_p
+def sg_qe_de_stats_table_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_diag_8.restype = c_result_p
+def sg_qe_de_stats_table_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_diag_sat.restype = c_result_p
+def sg_qe_de_stats_table_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_table_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_64.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_32.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_16.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_8.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_sat.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_64.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_32.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_16.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_8.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_sat.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_diag_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_diag_64.restype = c_result_p
+def sg_qe_de_stats_rowcol_diag_64(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_diag_64(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_diag_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_diag_32.restype = c_result_p
+def sg_qe_de_stats_rowcol_diag_32(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_diag_32(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_diag_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_diag_16.restype = c_result_p
+def sg_qe_de_stats_rowcol_diag_16(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_diag_16(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_diag_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_diag_8.restype = c_result_p
+def sg_qe_de_stats_rowcol_diag_8(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_diag_8(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_diag_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_diag_sat.restype = c_result_p
+def sg_qe_de_stats_rowcol_diag_sat(s1, s2, open, extend, matrix):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_diag_sat(
+        b(s1), len(s1), b(s2), len(s2), open, extend, matrix),
+        len(s1), len(s2))
+
 _argtypes = [c_profile_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_int]
 
 
@@ -15611,5 +17277,985 @@ _lib.parasail_sg_qe_db_stats_rowcol_striped_profile_sat.argtypes = _argtypes
 _lib.parasail_sg_qe_db_stats_rowcol_striped_profile_sat.restype = c_result_p
 def sg_qe_db_stats_rowcol_striped_profile_sat(profile, s2, open, extend):
     return Result(_lib.parasail_sg_qe_db_stats_rowcol_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_profile_64.restype = c_result_p
+def sg_qb_db_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_profile_32.restype = c_result_p
+def sg_qb_db_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_profile_16.restype = c_result_p
+def sg_qb_db_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_profile_8.restype = c_result_p
+def sg_qb_db_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_scan_profile_sat.restype = c_result_p
+def sg_qb_db_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_profile_64.restype = c_result_p
+def sg_qb_db_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_profile_32.restype = c_result_p
+def sg_qb_db_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_profile_16.restype = c_result_p
+def sg_qb_db_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_profile_8.restype = c_result_p
+def sg_qb_db_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_striped_profile_sat.restype = c_result_p
+def sg_qb_db_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_profile_64.restype = c_result_p
+def sg_qb_db_table_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_profile_32.restype = c_result_p
+def sg_qb_db_table_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_profile_16.restype = c_result_p
+def sg_qb_db_table_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_profile_8.restype = c_result_p
+def sg_qb_db_table_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_scan_profile_sat.restype = c_result_p
+def sg_qb_db_table_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_profile_64.restype = c_result_p
+def sg_qb_db_table_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_profile_32.restype = c_result_p
+def sg_qb_db_table_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_profile_16.restype = c_result_p
+def sg_qb_db_table_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_profile_8.restype = c_result_p
+def sg_qb_db_table_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_table_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_table_striped_profile_sat.restype = c_result_p
+def sg_qb_db_table_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_table_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_profile_64.restype = c_result_p
+def sg_qb_db_rowcol_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_profile_32.restype = c_result_p
+def sg_qb_db_rowcol_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_profile_16.restype = c_result_p
+def sg_qb_db_rowcol_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_profile_8.restype = c_result_p
+def sg_qb_db_rowcol_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_scan_profile_sat.restype = c_result_p
+def sg_qb_db_rowcol_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_profile_64.restype = c_result_p
+def sg_qb_db_rowcol_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_profile_32.restype = c_result_p
+def sg_qb_db_rowcol_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_profile_16.restype = c_result_p
+def sg_qb_db_rowcol_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_profile_8.restype = c_result_p
+def sg_qb_db_rowcol_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_rowcol_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_rowcol_striped_profile_sat.restype = c_result_p
+def sg_qb_db_rowcol_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_rowcol_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_trace_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_profile_64.restype = c_result_p
+def sg_qb_db_trace_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_profile_32.restype = c_result_p
+def sg_qb_db_trace_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_profile_16.restype = c_result_p
+def sg_qb_db_trace_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_profile_8.restype = c_result_p
+def sg_qb_db_trace_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_scan_profile_sat.restype = c_result_p
+def sg_qb_db_trace_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_profile_64.restype = c_result_p
+def sg_qb_db_trace_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_profile_32.restype = c_result_p
+def sg_qb_db_trace_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_profile_16.restype = c_result_p
+def sg_qb_db_trace_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_profile_8.restype = c_result_p
+def sg_qb_db_trace_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_trace_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_trace_striped_profile_sat.restype = c_result_p
+def sg_qb_db_trace_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_trace_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qb_db_stats_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_profile_64.restype = c_result_p
+def sg_qb_db_stats_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_profile_32.restype = c_result_p
+def sg_qb_db_stats_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_profile_16.restype = c_result_p
+def sg_qb_db_stats_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_profile_8.restype = c_result_p
+def sg_qb_db_stats_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_scan_profile_sat.restype = c_result_p
+def sg_qb_db_stats_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_profile_64.restype = c_result_p
+def sg_qb_db_stats_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_profile_32.restype = c_result_p
+def sg_qb_db_stats_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_profile_16.restype = c_result_p
+def sg_qb_db_stats_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_profile_8.restype = c_result_p
+def sg_qb_db_stats_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_striped_profile_sat.restype = c_result_p
+def sg_qb_db_stats_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_profile_64.restype = c_result_p
+def sg_qb_db_stats_table_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_profile_32.restype = c_result_p
+def sg_qb_db_stats_table_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_profile_16.restype = c_result_p
+def sg_qb_db_stats_table_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_profile_8.restype = c_result_p
+def sg_qb_db_stats_table_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_scan_profile_sat.restype = c_result_p
+def sg_qb_db_stats_table_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_profile_64.restype = c_result_p
+def sg_qb_db_stats_table_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_profile_32.restype = c_result_p
+def sg_qb_db_stats_table_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_profile_16.restype = c_result_p
+def sg_qb_db_stats_table_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_profile_8.restype = c_result_p
+def sg_qb_db_stats_table_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_table_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_table_striped_profile_sat.restype = c_result_p
+def sg_qb_db_stats_table_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_table_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_64.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_32.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_16.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_8.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_sat.restype = c_result_p
+def sg_qb_db_stats_rowcol_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_64.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_32.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_16.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_8.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_sat.restype = c_result_p
+def sg_qb_db_stats_rowcol_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qb_db_stats_rowcol_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_profile_64.restype = c_result_p
+def sg_qe_de_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_profile_32.restype = c_result_p
+def sg_qe_de_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_profile_16.restype = c_result_p
+def sg_qe_de_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_profile_8.restype = c_result_p
+def sg_qe_de_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_scan_profile_sat.restype = c_result_p
+def sg_qe_de_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_profile_64.restype = c_result_p
+def sg_qe_de_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_profile_32.restype = c_result_p
+def sg_qe_de_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_profile_16.restype = c_result_p
+def sg_qe_de_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_profile_8.restype = c_result_p
+def sg_qe_de_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_striped_profile_sat.restype = c_result_p
+def sg_qe_de_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_profile_64.restype = c_result_p
+def sg_qe_de_table_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_profile_32.restype = c_result_p
+def sg_qe_de_table_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_profile_16.restype = c_result_p
+def sg_qe_de_table_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_profile_8.restype = c_result_p
+def sg_qe_de_table_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_scan_profile_sat.restype = c_result_p
+def sg_qe_de_table_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_profile_64.restype = c_result_p
+def sg_qe_de_table_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_profile_32.restype = c_result_p
+def sg_qe_de_table_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_profile_16.restype = c_result_p
+def sg_qe_de_table_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_profile_8.restype = c_result_p
+def sg_qe_de_table_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_table_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_table_striped_profile_sat.restype = c_result_p
+def sg_qe_de_table_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_table_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_profile_64.restype = c_result_p
+def sg_qe_de_rowcol_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_profile_32.restype = c_result_p
+def sg_qe_de_rowcol_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_profile_16.restype = c_result_p
+def sg_qe_de_rowcol_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_profile_8.restype = c_result_p
+def sg_qe_de_rowcol_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_scan_profile_sat.restype = c_result_p
+def sg_qe_de_rowcol_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_profile_64.restype = c_result_p
+def sg_qe_de_rowcol_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_profile_32.restype = c_result_p
+def sg_qe_de_rowcol_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_profile_16.restype = c_result_p
+def sg_qe_de_rowcol_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_profile_8.restype = c_result_p
+def sg_qe_de_rowcol_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_rowcol_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_rowcol_striped_profile_sat.restype = c_result_p
+def sg_qe_de_rowcol_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_rowcol_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_trace_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_profile_64.restype = c_result_p
+def sg_qe_de_trace_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_profile_32.restype = c_result_p
+def sg_qe_de_trace_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_profile_16.restype = c_result_p
+def sg_qe_de_trace_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_profile_8.restype = c_result_p
+def sg_qe_de_trace_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_scan_profile_sat.restype = c_result_p
+def sg_qe_de_trace_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_profile_64.restype = c_result_p
+def sg_qe_de_trace_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_profile_32.restype = c_result_p
+def sg_qe_de_trace_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_profile_16.restype = c_result_p
+def sg_qe_de_trace_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_profile_8.restype = c_result_p
+def sg_qe_de_trace_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_trace_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_trace_striped_profile_sat.restype = c_result_p
+def sg_qe_de_trace_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_trace_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2), profile.s1, s2, profile.matrix)
+
+_lib.parasail_sg_qe_de_stats_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_profile_64.restype = c_result_p
+def sg_qe_de_stats_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_profile_32.restype = c_result_p
+def sg_qe_de_stats_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_profile_16.restype = c_result_p
+def sg_qe_de_stats_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_profile_8.restype = c_result_p
+def sg_qe_de_stats_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_scan_profile_sat.restype = c_result_p
+def sg_qe_de_stats_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_profile_64.restype = c_result_p
+def sg_qe_de_stats_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_profile_32.restype = c_result_p
+def sg_qe_de_stats_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_profile_16.restype = c_result_p
+def sg_qe_de_stats_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_profile_8.restype = c_result_p
+def sg_qe_de_stats_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_striped_profile_sat.restype = c_result_p
+def sg_qe_de_stats_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_profile_64.restype = c_result_p
+def sg_qe_de_stats_table_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_profile_32.restype = c_result_p
+def sg_qe_de_stats_table_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_profile_16.restype = c_result_p
+def sg_qe_de_stats_table_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_profile_8.restype = c_result_p
+def sg_qe_de_stats_table_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_scan_profile_sat.restype = c_result_p
+def sg_qe_de_stats_table_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_profile_64.restype = c_result_p
+def sg_qe_de_stats_table_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_profile_32.restype = c_result_p
+def sg_qe_de_stats_table_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_profile_16.restype = c_result_p
+def sg_qe_de_stats_table_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_profile_8.restype = c_result_p
+def sg_qe_de_stats_table_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_table_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_table_striped_profile_sat.restype = c_result_p
+def sg_qe_de_stats_table_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_table_striped_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_64.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_32.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_16.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_8.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_sat.restype = c_result_p
+def sg_qe_de_stats_rowcol_scan_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_scan_profile_sat(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_64.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_64.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_profile_64(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_64(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_32.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_32.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_profile_32(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_32(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_16.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_16.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_profile_16(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_16(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_8.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_8.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_profile_8(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_8(
+        profile, b(s2), len(s2), open, extend),
+        len(profile.s1), len(s2))
+
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_sat.argtypes = _argtypes
+_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_sat.restype = c_result_p
+def sg_qe_de_stats_rowcol_striped_profile_sat(profile, s2, open, extend):
+    return Result(_lib.parasail_sg_qe_de_stats_rowcol_striped_profile_sat(
         profile, b(s2), len(s2), open, extend),
         len(profile.s1), len(s2))

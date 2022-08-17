@@ -1068,7 +1068,7 @@ _argtypes = [ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctype
 """)
 
 # serial reference implementations
-alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db", "sg_qb_db", "sg_qe_de"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 for a in alg:
@@ -1087,7 +1087,7 @@ for a in alg:
                 myprint(" "*8+"len(s1), len(s2))")
 
 ## serial scan reference implementations
-alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db", "sg_qb_db", "sg_qe_de"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 for a in alg:
@@ -1106,7 +1106,7 @@ for a in alg:
                 myprint(" "*8+"len(s1), len(s2))")
 
 # vectorized implementations
-alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db", "sg_qb_db", "sg_qe_de"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 par = ["_scan", "_striped", "_diag"]
@@ -1133,7 +1133,7 @@ _argtypes = [c_profile_p, ctypes.c_char_p, ctypes.c_int, ctypes.c_int, ctypes.c_
 """)
 
 # vectorized profile implementations
-alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db"]
+alg = ["nw", "sg", "sw", "sg_qb", "sg_qe", "sg_qx", "sg_db", "sg_de", "sg_dx", "sg_qb_de", "sg_qe_db", "sg_qb_db", "sg_qe_de"]
 stats = ["", "_stats"]
 table = ["", "_table", "_rowcol", "_trace"]
 par = ["_scan_profile", "_striped_profile"]
