@@ -10,14 +10,14 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
-------------------
-1.3c1 - 2022-08-17
-------------------
+-----------------
+1.3_ - 2022-08-22
+-----------------
 - Add bindings for sg_qb_db and sg_qe_de
 
-------------------
-1.2.4 - 2021-02-06
-------------------
+-------------------
+1.2.4_ - 2021-02-06
+-------------------
 - Fix #60 Missing wheels on PyPI
 
 -------------------
@@ -168,8 +168,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.3c1...master
-.. _1.3c1:   https://github.com/jeffdaily/parasail-python/compare/v1.2.4...v1.3c1
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.3...master
+.. _1.3:     https://github.com/jeffdaily/parasail-python/compare/v1.2.4...v1.3
 .. _1.2.4:   https://github.com/jeffdaily/parasail-python/compare/v1.2.3...v1.2.4
 .. _1.2.3:   https://github.com/jeffdaily/parasail-python/compare/v1.2.2...v1.2.3
 .. _1.2.2:   https://github.com/jeffdaily/parasail-python/compare/v1.2.1...v1.2.2
