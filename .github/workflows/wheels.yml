@@ -16,10 +16,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-20.04, windows-2019]
+        os: [ubuntu-20.04, windows-2019, macos-11]
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install macos deps
+        if: startsWith(matrix.os, 'macos')
+        # automake is not included in the stock macos runner, which triggers `setup.py` to install all deps (not just
+        # the missing ones). However, the newly installed m4 binary fails on macos with a SIGABRT (though the original
+        # `brew` installed one does not) as documented in:
+        #     https://github.com/jeffdaily/parasail-python/issues/24.
+        run: brew install automake
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.9.0
