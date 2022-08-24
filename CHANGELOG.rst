@@ -10,6 +10,12 @@ Unreleased_
 -----------
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
+-------------------
+1.3.1_ - 2022-08-24
+-------------------
+- Fix macos wheel build
+- Add C parasail headers into wheels, add get_include() and get_library()
+
 -----------------
 1.3_ - 2022-08-22
 -----------------
@@ -168,7 +174,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.3...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.3.1...master
+.. _1.3.1:   https://github.com/jeffdaily/parasail-python/compare/v1.3...v1.3.1
 .. _1.3:     https://github.com/jeffdaily/parasail-python/compare/v1.2.4...v1.3
 .. _1.2.4:   https://github.com/jeffdaily/parasail-python/compare/v1.2.3...v1.2.4
 .. _1.2.3:   https://github.com/jeffdaily/parasail-python/compare/v1.2.2...v1.2.3
