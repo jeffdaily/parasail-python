@@ -14,6 +14,8 @@ env:
   CIBW_TEST_COMMAND: python -m unittest discover {project}/tests
   # Disable building PyPy wheels on all platforms
   CIBW_SKIP: pp*
+  # The windows builds was reusing the found win32 dll instead of downloading the win64 one.
+  CIBW_BEFORE_BUILD_WINDOWS: del /q {project}\parasail\parasail.dll
 
 jobs:
   build_wheels:
