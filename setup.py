@@ -494,6 +494,16 @@ if __name__ == "__main__":
     except ImportError:
         cmdclass = {'install': install}
 
+    # cibuildwheel for windows wasn't properly cleaning up after each build
+    # it is necessary to fully remove the build directory once at the beginning
+    # prior to building.
+    if platform.system() == "Windows":
+        if os.path.exists("build"):
+            print("Removing old build directory")
+            shutil.rmtree("build")
+        else:
+            print("No previous build directory detected")
+
     long_description = ""
     try:
         long_description = open("README.rst", encoding="utf8").read()
