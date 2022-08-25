@@ -16,7 +16,9 @@ env:
   CIBW_SKIP: pp*
   # The windows builds was reusing the found win32 dll instead of downloading the win64 one.
   # Additionally, the build directory contained the prior win32 dll. Easier to delete it, too.
-  CIBW_BEFORE_BUILD_WINDOWS: del /q {project}\parasail\parasail.dll {project}\build
+  CIBW_BEFORE_BUILD_WINDOWS: >
+    del /q {project}\parasail\parasail.dll &&
+    python setup.py clean
 
 jobs:
   build_wheels:
