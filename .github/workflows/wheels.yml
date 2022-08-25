@@ -9,6 +9,9 @@ on: [push, pull_request]
 #   release:
 #     types:
 #       - published
+env:
+  CIBW_BUILD_VERBOSITY: 3
+  CIBW_TEST_COMMAND: python -m unittest discover {project}/tests
 
 jobs:
   build_wheels:
