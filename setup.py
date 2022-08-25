@@ -437,9 +437,9 @@ def download_windows_dll():
     else:
         # we failed all the attempts - deal with the consequences.
         raise RuntimeError("All attempts to download asset URL have failed")
-    destdir = archive.rsplit('.',1)[0]
+    unzipped_archive_destination = archive.rsplit('.',1)[0]
     print("Unzipping {}".format(archive))
-    unzip(archive, destdir)
+    unzip(archive, unzipped_archive_destination)
     print("Locating {}".format(libname))
     root = find_file(libname)
     src = os.path.join(root, libname)
@@ -452,6 +452,9 @@ def download_windows_dll():
     dst = os.path.join("parasail", "include")
     print("copying {} to {}".format(headers_src, dst))
     copy_tree(headers_src, dst)
+
+    # clean up downloaded asset
+    shutil.rmtree(unzipped_archive_destination)
 
 def prepare_shared_lib():
     libname = get_libname()
