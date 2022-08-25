@@ -20,12 +20,21 @@ env:
 
 jobs:
   build_wheels:
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Build wheels on for ${{ matrix.python }}-${{ matrix.buildplat[1] }}
+    runs-on: ${{ matrix.buildplat[0] }}
     strategy:
+      # Ensure that a wheel builder finishes even if another fails
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-11]
+        buildplat:
+        - [ubuntu-20.04, manylinux_x86_64]
+        - [ubuntu-20.04, musllinux_i686]
+        - [ubuntu-20.04, manylinux_x86_64]
+        - [ubuntu-20.04, musllinux_i686]
+        - [windows-2019, win_amd64]
+        - [windows-2019, win32]
+        - [macos-11, macosx_x86_64]
+        python: ["cp36", "cp37", "cp38", "cp39", "cp310", "cp311"]
 
     steps:
       - uses: actions/checkout@v3
@@ -40,6 +49,8 @@ jobs:
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.9.0
+        env:
+          CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
 
       - uses: actions/upload-artifact@v3
         with:
