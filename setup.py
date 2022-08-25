@@ -56,8 +56,8 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 
 
 def is_python_64bit():
-    import struct
-    return struct.calcsize('P')*8 == 64
+    import sys
+    return sys.maxsize > 2**32
 
 def read(*parts):
     """
@@ -452,7 +452,7 @@ def download_windows_dll():
     dst = os.path.join("parasail", "include")
     print("copying {} to {}".format(headers_src, dst))
     copy_tree(headers_src, dst)
-    
+
 def prepare_shared_lib():
     libname = get_libname()
     libpath = os.path.join("parasail", libname)
