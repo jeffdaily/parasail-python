@@ -465,6 +465,8 @@ def prepare_shared_lib():
             download_windows_dll()
         else:
             build_parasail(libname)
+    else:
+        print("{} found, skipping build".format(libpath))
     if not os.path.exists(libpath):
         raise RuntimeError("Unable to find shared library {}.".format(libname))
 
