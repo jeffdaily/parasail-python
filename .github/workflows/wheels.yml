@@ -20,7 +20,7 @@ env:
 
 jobs:
   build_wheels:
-    name: Build wheels on for ${{ matrix.python }}-${{ matrix.buildplat[1] }}
+    name: Build wheels for ${{ matrix.python }}-${{ matrix.buildplat[1] }}
     runs-on: ${{ matrix.buildplat[0] }}
     strategy:
       # Ensure that a wheel builder finishes even if another fails
