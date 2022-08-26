@@ -17,6 +17,11 @@ env:
   # The windows builds was reusing the found win32 dll instead of downloading the win64 one.
   # Additionally, the build directory contained the prior win32 dll. Easier to delete it, too.
   CIBW_BEFORE_BUILD_WINDOWS: del /q {project}\parasail\parasail.dll
+  # automake is not included in the stock macos runner, which triggers `setup.py` to install all deps (not just
+  # the missing ones). However, the newly installed m4 binary fails on macos with a SIGABRT (though the original
+  # `brew` installed one does not) as documented in:
+  #     https://github.com/jeffdaily/parasail-python/issues/24.
+  CIBW_BEFORE_BUILD_MACOS: brew install automake
 
 jobs:
   build_wheels:
@@ -39,14 +44,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install macos deps
-        if: startsWith(${{ matrix.buildplat[0] }}, 'macos')
-        # automake is not included in the stock macos runner, which triggers `setup.py` to install all deps (not just
-        # the missing ones). However, the newly installed m4 binary fails on macos with a SIGABRT (though the original
-        # `brew` installed one does not) as documented in:
-        #     https://github.com/jeffdaily/parasail-python/issues/24.
-        run: brew install automake
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.9.0
