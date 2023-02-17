@@ -11,6 +11,11 @@ Unreleased_
 The Unreleased section will be empty for tagged releases. Unreleased functionality appears in the develop branch.
 
 -------------------
+1.3.4_ - 2023-02-16
+-------------------
+- Version bump to regenerate wheels with v2.6.1 parasail C library
+
+-------------------
 1.3.3_ - 2022-08-26
 -------------------
 - CI improvements
@@ -187,7 +192,8 @@ The Unreleased section will be empty for tagged releases. Unreleased functionali
 -------------------
 First tagged release. The 'master' branch always represents the latest stable code. Tagged releases correspond to pypi releases.
 
-.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.3.3...master
+.. _Unreleased: https://github.com/jeffdaily/parasail-python/compare/v1.3.4...master
+.. _1.3.4:   https://github.com/jeffdaily/parasail-python/compare/v1.3.3...v1.3.4
 .. _1.3.3:   https://github.com/jeffdaily/parasail-python/compare/v1.3.2...v1.3.3
 .. _1.3.2:   https://github.com/jeffdaily/parasail-python/compare/v1.3.1...v1.3.2
 .. _1.3.1:   https://github.com/jeffdaily/parasail-python/compare/v1.3...v1.3.1
