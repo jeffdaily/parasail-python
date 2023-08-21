@@ -32,13 +32,14 @@ jobs:
       fail-fast: false
       matrix:
         buildplat:
-        - [ubuntu-20.04, manylinux_x86_64]
-        - [ubuntu-20.04, musllinux_i686]
-        - [ubuntu-20.04, manylinux_x86_64]
-        - [ubuntu-20.04, musllinux_i686]
-        - [windows-2019, win_amd64]
-        - [windows-2019, win32]
-        - [macos-11, macosx_x86_64]
+        - [ubuntu-latest, manylinux_x86_64]
+        - [ubuntu-latest, musllinux_i686]
+        - [ubuntu-latest, manylinux_x86_64]
+        - [ubuntu-latest, musllinux_i686]
+        - [windows-latest, win_amd64]
+        - [windows-latest, win32]
+        - [macos-latest, macosx_x86_64]
+        - [macos-latest, macosx_arm64]
         # we only need to build for a single python version since the wheels are universal
         python: ["cp38"]
 
