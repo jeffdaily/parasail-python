@@ -32,14 +32,14 @@ jobs:
       fail-fast: false
       matrix:
         buildplat:
-        - [ubuntu-latest, manylinux_x86_64]
-        - [ubuntu-latest, musllinux_i686]
-        - [ubuntu-latest, manylinux_x86_64]
-        - [ubuntu-latest, musllinux_i686]
-        - [windows-latest, win_amd64]
-        - [windows-latest, win32]
-        - [macos-latest, macosx_x86_64]
-        - [macos-latest, macosx_arm64]
+        - [ubuntu-latest, manylinux_x86_64, auto]
+        - [ubuntu-latest, musllinux_i686, auto]
+        - [ubuntu-latest, manylinux_x86_64, auto]
+        - [ubuntu-latest, musllinux_i686, auto]
+        - [windows-latest, win_amd64, auto]
+        - [windows-latest, win32, auto]
+        - [macos-latest, macosx_x86_64, x86_64]
+        - [macos-latest, macosx_arm64, arm64]
         # we only need to build for a single python version since the wheels are universal
         python: ["cp310"]
 
@@ -49,6 +49,7 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.15.0
         env:
+          CIBW_ARCHS: ${{ matrix.buildplat[2] }}
           CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
 
       - uses: actions/upload-artifact@v3
