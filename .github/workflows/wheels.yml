@@ -41,7 +41,7 @@ jobs:
         - [macos-latest, macosx_x86_64]
         - [macos-latest, macosx_arm64]
         # we only need to build for a single python version since the wheels are universal
-        python: ["cp38"]
+        python: ["cp310"]
 
     steps:
       - uses: actions/checkout@v3
