@@ -34,8 +34,11 @@ jobs:
         buildplat:
         - [ubuntu-latest, manylinux_x86_64, auto]
         - [ubuntu-latest, musllinux_i686, auto]
-        - [ubuntu-latest, manylinux_x86_64, auto]
-        - [ubuntu-latest, musllinux_i686, auto]
+        # No floating "ubuntu-latest-arm" alias exists (yet) for GitHub's native arm64
+        # runners, only version-pinned images:
+        # https://github.blog/changelog/2024-06-24-github-actions-ubuntu-24-04-image-now-available-for-arm64-runners/
+        - [ubuntu-24.04-arm, manylinux_aarch64, auto]
+        - [ubuntu-24.04-arm, musllinux_aarch64, auto]
         - [windows-latest, win_amd64, auto]
         - [windows-latest, win32, auto]
         - [macos-latest, macosx_x86_64, x86_64]
@@ -44,29 +47,31 @@ jobs:
         python: ["cp310"]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build wheels
-        uses: pypa/cibuildwheel@v2.15.0
+        uses: pypa/cibuildwheel@v2.20.0
         env:
           CIBW_ARCHS: ${{ matrix.buildplat[2] }}
           CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: wheels-${{ matrix.buildplat[1] }}
           path: ./wheelhouse/*.whl
 
   build_sdist:
     name: Build source distribution
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Build sdist
         run: pipx run build --sdist
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: sdist
           path: dist/*.tar.gz
 
   upload_pypi:
@@ -77,12 +82,14 @@ jobs:
     # alternatively, to publish when a GitHub Release is created, use the following rule:
     # if: github.event_name == 'release' && github.event.action == 'published'
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
-          # unpacks default artifact into dist/
-          # if `name: artifact` is omitted, the action will create extra parent dir
-          name: artifact
+          # v4 requires unique names per upload (unlike v3, which merged same-named
+          # artifacts), so build_wheels/build_sdist upload under distinct names and
+          # this flattens them all into dist/
           path: dist
+          pattern: "*"
+          merge-multiple: true
 
       - uses: pypa/gh-action-pypi-publish@v1.5.0
         with:
