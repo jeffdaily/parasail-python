@@ -52,8 +52,12 @@ jobs:
           CIBW_ARCHS: ${{ matrix.buildplat[2] }}
           CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v7
         with:
+          # buildplat[1] alone isn't unique -- the matrix currently has duplicate
+          # entries (see #80) -- so suffix with the job index to guarantee a
+          # unique artifact name regardless.
+          name: wheels-${{ matrix.buildplat[1] }}-${{ strategy.job-index }}
           path: ./wheelhouse/*.whl
 
   build_sdist:
@@ -65,8 +69,9 @@ jobs:
       - name: Build sdist
         run: pipx run build --sdist
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v7
         with:
+          name: sdist
           path: dist/*.tar.gz
 
   upload_pypi:
@@ -77,12 +82,13 @@ jobs:
     # alternatively, to publish when a GitHub Release is created, use the following rule:
     # if: github.event_name == 'release' && github.event.action == 'published'
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v8
         with:
-          # unpacks default artifact into dist/
-          # if `name: artifact` is omitted, the action will create extra parent dir
-          name: artifact
+          # v4+ requires unique names per upload (unlike v3, which merged
+          # same-named artifacts), so this flattens all of them into dist/
           path: dist
+          pattern: "*"
+          merge-multiple: true
 
       - uses: pypa/gh-action-pypi-publish@v1.5.0
         with:
